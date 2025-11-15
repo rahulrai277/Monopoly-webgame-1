@@ -1,0 +1,4182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Monopoly India States - Professional web-based Monopoly game with Indian states as properties. Play with AI, 4-player support, mobile-friendly, free online board game.">
+    <meta name="keywords" content="Monopoly, India States Monopoly, Board Game, Free Online Game, Indian Properties, Web Game, Strategy Game, Multiplayer Game, Play Online, HTML5 Game, JavaScript Game, Monopoly Game, India Game, Property Trading, Business Game">
+    <meta name="author" content="Rahul Rai">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta property="og:title" content="Monopoly India States - Play Online">
+    <meta property="og:description" content="Play Monopoly with Indian states! Free online, 4-player support, AI opponents, mobile-friendly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://monopoly-india.netlify.app">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%231a1a2e' width='200' height='200'/%3E%3Ctext x='100' y='100' font-size='80' text-anchor='middle' dominant-baseline='middle'%3E🇮🇳%3C/text%3E%3C/svg%3E">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Monopoly India States">
+    <meta name="twitter:description" content="Play Monopoly with Indian states online!">
+    <link rel="canonical" href="https://monopoly-india.netlify.app">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🇮🇳%3C/text%3E%3C/svg%3E">
+    <title>🇮🇳 Monopoly India States - Play Online Free | Board Game</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-border: rgba(94, 82, 64, 0.2);
+            
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            
+            /* Premium Game Theme */
+            --game-primary: #1a1a2e;
+            --game-secondary: #16213e;
+            --game-accent: #ffd700;
+            --game-neon: #00ff88;
+            
+            /* Monopoly Colors */
+            --brown-prop: #8B4513;
+            --light-blue-prop: #87CEEB;
+            --pink-prop: #FF1493;
+            --orange-prop: #FFA500;
+            --red-prop: #DC143C;
+            --yellow-prop: #FFD700;
+            --green-prop: #228B22;
+            --dark-blue-prop: #0000CD;
+            --railroad-prop: #000000;
+            --utility-prop: #00CED1;
+        }
+        
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --color-background: var(--color-charcoal-700);
+            --color-surface: var(--color-charcoal-800);
+            --color-text: var(--color-gray-200);
+            --color-text-secondary: rgba(167, 169, 169, 0.7);
+            --color-primary: var(--color-teal-300);
+            --color-primary-hover: var(--color-teal-400);
+            --color-border: rgba(119, 124, 124, 0.3);
+        }
+        
+        /* Theme 1 - Royal Blue */
+        [data-theme="royal"] {
+            --color-background: #0f3460;
+            --color-surface: rgba(255, 255, 255, 0.1);
+            --color-text: #ffffff;
+            --color-text-secondary: rgba(255, 255, 255, 0.7);
+            --color-primary: #ffd700;
+            --color-primary-hover: #ffed4e;
+            --color-border: rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Theme 2 - Forest Green */
+        [data-theme="forest"] {
+            --color-background: #1b4332;
+            --color-surface: rgba(64, 145, 108, 0.2);
+            --color-text: #f1faee;
+            --color-text-secondary: rgba(241, 250, 238, 0.7);
+            --color-primary: #40916c;
+            --color-primary-hover: #52b788;
+            --color-border: rgba(168, 218, 220, 0.3);
+        }
+        
+        /* Theme 3 - Sunset Orange */
+        [data-theme="sunset"] {
+            --color-background: #d62828;
+            --color-surface: rgba(252, 191, 73, 0.15);
+            --color-text: #eae2b7;
+            --color-text-secondary: rgba(234, 226, 183, 0.7);
+            --color-primary: #fcbf49;
+            --color-primary-hover: #ffd166;
+            --color-border: rgba(252, 191, 73, 0.3);
+        }
+        
+        /* Theme 4 - Midnight Purple */
+        [data-theme="midnight"] {
+            --color-background: #2c1654;
+            --color-surface: rgba(181, 101, 216, 0.15);
+            --color-text: #ffffff;
+            --color-text-secondary: rgba(255, 255, 255, 0.7);
+            --color-primary: #b565d8;
+            --color-primary-hover: #c77dff;
+            --color-border: rgba(181, 101, 216, 0.3);
+        }
+        
+        /* Theme 5 - Ocean Teal */
+        [data-theme="ocean"] {
+            --color-background: #0a1929;
+            --color-surface: rgba(0, 188, 212, 0.1);
+            --color-text: #e1f5fe;
+            --color-text-secondary: rgba(225, 245, 254, 0.7);
+            --color-primary: #00bcd4;
+            --color-primary-hover: #26c6da;
+            --color-border: rgba(0, 188, 212, 0.3);
+        }
+        
+        /* Theme 6 - Sakura Pink */
+        [data-theme="sakura"] {
+            --color-background: #fce4ec;
+            --color-surface: rgba(236, 64, 122, 0.1);
+            --color-text: #424242;
+            --color-text-secondary: rgba(66, 66, 66, 0.7);
+            --color-primary: #ec407a;
+            --color-primary-hover: #f06292;
+            --color-border: rgba(236, 64, 122, 0.3);
+        }
+        
+        /* Theme 7 - Cyber Neon */
+        [data-theme="neon"] {
+            --color-background: #000000;
+            --color-surface: rgba(0, 255, 136, 0.05);
+            --color-text: #00ff88;
+            --color-text-secondary: rgba(0, 255, 136, 0.7);
+            --color-primary: #00ff88;
+            --color-primary-hover: #00ffaa;
+            --color-border: rgba(0, 255, 136, 0.3);
+        }
+        
+        /* Theme 8 - Classic Monopoly */
+        [data-theme="classic"] {
+            --color-background: #e8d5c4;
+            --color-surface: rgba(211, 47, 47, 0.08);
+            --color-text: #000000;
+            --color-text-secondary: rgba(0, 0, 0, 0.7);
+            --color-primary: #d32f2f;
+            --color-primary-hover: #e53935;
+            --color-border: rgba(211, 47, 47, 0.3);
+        }
+        
+        /* Theme 9 - Desert Sand */
+        [data-theme="desert"] {
+            --color-background: #d7ccc8;
+            --color-surface: rgba(109, 76, 65, 0.1);
+            --color-text: #3e2723;
+            --color-text-secondary: rgba(62, 39, 35, 0.7);
+            --color-primary: #6d4c41;
+            --color-primary-hover: #8d6e63;
+            --color-border: rgba(109, 76, 65, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-background);
+            background-attachment: fixed;
+            color: var(--color-text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.5s ease, color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Start Screen */
+        #startScreen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-24);
+            background: var(--color-background);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        
+        #startScreen::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: floatingOrb 20s ease-in-out infinite;
+        }
+        
+        @keyframes floatingOrb {
+            0%, 100% { transform: translate(-25%, -25%) scale(1); }
+            50% { transform: translate(-75%, -75%) scale(1.2); }
+        }
+        
+        /* Animated Background Symbols */
+        .bg-symbol {
+            position: fixed;
+            font-size: 48px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatSymbol 20s linear infinite;
+        }
+        
+        @keyframes floatSymbol {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatSymbolFast {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.25;
+            }
+            90% {
+                opacity: 0.25;
+            }
+            100% {
+                transform: translateY(-100px) translateX(-100px) rotate(-360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatSymbolSlow {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        .game-title {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: 900;
+            margin-bottom: var(--space-24);
+            text-align: center;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+            animation: titleGlow 3s ease-in-out infinite, titleFloat 4s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.8)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255,215,0,1)) drop-shadow(0 0 50px rgba(255,215,0,0.6)); }
+        }
+        
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .start-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: var(--space-24);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.2);
+            animation: cardFloatIn 0.8s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @keyframes cardFloatIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: 500;
+            font-size: var(--font-size-base);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            background: var(--color-background);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            font-family: inherit;
+        }
+        
+        .player-setup {
+            display: none;
+            margin-top: var(--space-16);
+        }
+        
+        .player-setup.active {
+            display: block;
+        }
+        
+        .player-input {
+            display: flex;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+            align-items: center;
+        }
+        
+        .token-display {
+            font-size: 32px;
+            width: 50px;
+            text-align: center;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: var(--space-16);
+            background: linear-gradient(135deg, #ffd700 0%, #ff9500 100%);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 12px;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+            margin-top: var(--space-8);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-secondary-hover);
+        }
+        
+        /* Game Board */
+        #gameScreen {
+            display: none;
+            min-height: 100vh;
+            padding: var(--space-8);
+        }
+        
+        .game-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: var(--space-16);
+        }
+        
+        @media (max-width: 480px) {
+            .game-container {
+                padding: var(--space-8);
+            }
+        }
+        
+        .board-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .player-stat-card {
+            background: var(--color-background);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            margin-bottom: var(--space-12);
+            border: 3px solid var(--color-border);
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .player-stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .player-stat-card.active {
+            border-width: 4px;
+            box-shadow: 0 0 30px currentColor;
+            animation: pulse 2s infinite;
+        }
+        
+        .player-stat-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+            padding-bottom: var(--space-12);
+            border-bottom: 2px solid var(--color-border);
+        }
+        
+        .player-stat-token {
+            font-size: 48px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .player-stat-info {
+            flex: 1;
+        }
+        
+        .player-stat-name {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+        }
+        
+        .player-stat-status {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-base);
+            display: inline-block;
+        }
+        
+        .player-stat-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+        
+        .stat-item {
+            background: var(--color-surface);
+            padding: var(--space-8);
+            border-radius: var(--radius-base);
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            display: block;
+            margin-bottom: var(--space-4);
+        }
+        
+        .stat-value {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .property-item {
+            border-radius: var(--radius-base);
+            padding: var(--space-8);
+            margin-bottom: var(--space-6);
+            border-left: 4px solid;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .property-item:hover {
+            transform: translateX(4px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+        
+        .property-item-emoji {
+            font-size: 20px;
+        }
+        
+        .property-item-name {
+            flex: 1;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16);
+            background: var(--color-surface);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-16);
+            flex-wrap: wrap;
+            gap: var(--space-12);
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: var(--space-8);
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            border-radius: 2px;
+        }
+        
+        .current-player {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+        }
+        
+        .theme-selector {
+            display: flex;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+        }
+        
+        .theme-btn {
+            padding: var(--space-8) var(--space-12);
+            border: 2px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 100px;
+        }
+        
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border-color: var(--color-primary);
+        }
+        
+        .theme-btn.active {
+            background: var(--color-primary);
+            color: var(--color-background);
+            border-color: var(--color-primary);
+            font-weight: 700;
+            box-shadow: 0 4px 12px var(--color-primary);
+        }
+        
+        .game-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-16);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .game-main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-16);
+        }
+        
+        @media (min-width: 1024px) {
+            .game-main-layout {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        
+        .stats-panel {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            border: 2px solid var(--color-border);
+            overflow-y: auto;
+            max-height: 800px;
+        }
+        
+        .stats-panel h2 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-16);
+            text-align: center;
+            color: var(--color-primary);
+        }
+        
+        /* GAME ACTIVITY LOG PANEL */
+        .activity-log-panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: var(--color-surface);
+            border-left: 3px solid var(--color-border);
+            box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .activity-log-header {
+            padding: var(--space-16);
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            font-weight: 700;
+            font-size: var(--font-size-xl);
+            text-align: center;
+            border-bottom: 3px solid var(--color-primary-hover);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .activity-log-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-12);
+            background: var(--color-background);
+        }
+        
+        .activity-entry {
+            background: var(--color-surface);
+            border-left: 4px solid var(--color-primary);
+            border-radius: var(--radius-base);
+            padding: var(--space-12);
+            margin-bottom: var(--space-12);
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: var(--shadow-sm);
+            animation: slideInRight 0.3s ease;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .activity-entry .timestamp {
+            display: block;
+            font-size: 11px;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-family: var(--font-family-mono);
+        }
+        
+        .activity-entry .action-icon {
+            font-size: 20px;
+            margin-right: 6px;
+        }
+        
+        .activity-entry .player-name {
+            font-weight: 700;
+            margin-right: 4px;
+        }
+        
+        .activity-entry .amount {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        
+        .activity-entry.highlight {
+            background: var(--color-bg-1);
+            border-left-color: var(--color-error);
+            border-left-width: 6px;
+            animation: highlight 0.5s ease;
+        }
+        
+        @keyframes highlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        .log-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 950;
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .log-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+        
+        /* Mobile responsive for activity log */
+        @media (max-width: 1024px) {
+            .activity-log-panel {
+                transform: translateX(100%);
+                box-shadow: -8px 0 30px rgba(0,0,0,0.5);
+            }
+            
+            .activity-log-panel.active {
+                transform: translateX(0);
+            }
+            
+            .log-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .activity-log-panel {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .activity-log-header {
+                font-size: var(--font-size-lg);
+                padding: var(--space-12);
+            }
+            
+            .activity-entry {
+                font-size: 12px;
+                padding: var(--space-8);
+            }
+        }
+        
+        /* Board Grid */
+        .board {
+            aspect-ratio: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            background: var(--color-surface);
+            border: 3px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+        
+        .space {
+            border: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            font-size: clamp(6px, 1vw, 11px);
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .space:hover {
+            background: rgba(33, 128, 141, 0.1);
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .owner-indicator {
+            position: absolute;
+            bottom: 20%;
+            left: 2px;
+            right: 2px;
+            height: 3px;
+            border-radius: 2px;
+        }
+        
+        .space-name {
+            font-weight: 600;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+        
+        .space-price {
+            font-size: clamp(5px, 0.8vw, 9px);
+            color: var(--color-text-secondary);
+            margin-top: 2px;
+        }
+        
+        .color-bar {
+            width: 100%;
+            height: 15%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .tokens {
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+            max-width: 100%;
+        }
+        
+        .token {
+            width: clamp(20px, 3vw, 40px);
+            height: clamp(20px, 3vw, 40px);
+            border-radius: 8px;
+            border: 3px solid white;
+            font-size: clamp(14px, 2.5vw, 28px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6), 0 0 20px currentColor, inset 0 2px 4px rgba(255,255,255,0.5);
+            position: relative;
+            z-index: 5;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        .token.active {
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 20px currentColor, 0 4px 8px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 4px 12px rgba(0,0,0,0.6);
+            }
+            50% { 
+                transform: scale(1.2); 
+                box-shadow: 0 0 30px currentColor, 0 0 60px currentColor, 0 6px 20px rgba(0,0,0,0.8);
+            }
+        }
+        
+        .house-indicator {
+            position: absolute;
+            top: 20%;
+            right: 2px;
+            font-size: clamp(8px, 1.5vw, 14px);
+        }
+        
+        /* Board Center */
+        .board-center {
+            grid-column: 2 / 11;
+            grid-row: 2 / 11;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-16);
+            background: var(--color-background);
+        }
+        
+        .dice-container {
+            display: flex;
+            gap: var(--space-12);
+            margin-bottom: var(--space-16);
+        }
+        
+        .die {
+            width: clamp(40px, 8vw, 60px);
+            height: clamp(40px, 8vw, 60px);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            border: 3px solid #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 700;
+            color: #d32f2f;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.8);
+            transition: transform 0.5s;
+            position: relative;
+        }
+        
+        .die::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .die.rolling {
+            animation: roll 0.5s ease-in-out;
+        }
+        
+        @keyframes roll {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .die.rolling {
+            animation: roll 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), diceGlow 0.6s ease-in-out;
+        }
+        
+        @keyframes diceGlow {
+            0%, 100% { box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
+            50% { box-shadow: 0 6px 25px rgba(255,215,0,0.8), 0 0 40px rgba(255,215,0,0.5); }
+        }
+        
+        .roll-btn {
+            padding: var(--space-12) var(--space-24);
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 44px;
+        }
+        
+        .roll-btn:hover:not(:disabled) {
+            background: var(--color-primary-hover);
+            transform: scale(1.05);
+        }
+        
+        .roll-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: var(--color-surface);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            max-height: 800px;
+            overflow-y: auto;
+        }
+        
+        .player-card {
+            background: var(--color-background);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-base);
+            padding: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+        
+        .player-card.active {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(33, 128, 141, 0.2);
+        }
+        
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .player-token {
+            font-size: 24px;
+        }
+        
+        .player-info {
+            flex: 1;
+        }
+        
+        .player-name {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+        
+        .player-cash {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .player-properties {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-8);
+        }
+        
+        .property-chip {
+            display: inline-block;
+            padding: 4px 8px;
+            margin: 2px;
+            border-radius: 6px;
+            font-size: 10px;
+            background: var(--color-primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .game-log {
+            margin-top: var(--space-24);
+        }
+        
+        .game-log h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-8);
+        }
+        
+        .log-entry {
+            padding: var(--space-12);
+            background: var(--color-background);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-8);
+            font-size: 13px;
+            line-height: 1.5;
+            border-left: 3px solid var(--color-primary);
+            transition: all 0.3s;
+        }
+        
+        .log-entry:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-16);
+        }
+        
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .modal-content {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-16);
+        }
+        
+        .modal-body {
+            margin-bottom: var(--space-16);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+        }
+        
+        .modal-actions .btn {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .property-card {
+            background: var(--color-background);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            margin-bottom: var(--space-16);
+        }
+        
+        .property-image {
+            text-align: center;
+            font-size: 64px;
+            margin-bottom: var(--space-16);
+            animation: bounceIn 0.5s;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .property-header {
+            padding: var(--space-12);
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            border-radius: var(--radius-base) var(--radius-base) 0 0;
+            margin: calc(var(--space-16) * -1) calc(var(--space-16) * -1) var(--space-12);
+        }
+        
+        .property-details {
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+        }
+        
+        .property-details div {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-8) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .property-details div:last-child {
+            border-bottom: none;
+        }
+        
+        /* Menu */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100%;
+            background: var(--color-surface);
+            box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+            z-index: 999;
+            padding: var(--space-24);
+            overflow-y: auto;
+        }
+        
+        .menu.active {
+            display: block;
+            animation: slideInLeft 0.3s;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-280px); }
+            to { transform: translateX(0); }
+        }
+        
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        
+        .menu-overlay.active {
+            display: block;
+        }
+        
+        .menu h2 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-24);
+        }
+        
+        .menu-item {
+            padding: var(--space-12);
+            margin-bottom: var(--space-8);
+            background: var(--color-background);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .menu-item:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        /* End Screen */
+        #endScreen {
+            display: none;
+            min-height: 100vh;
+            padding: var(--space-24);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .winner-card {
+            background: var(--color-surface);
+            border: 3px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .winner-title {
+            font-size: clamp(32px, 8vw, 64px);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--space-24);
+        }
+        
+        .winner-stats {
+            margin: var(--space-24) 0;
+            font-size: var(--font-size-xl);
+        }
+        
+        .winner-stats div {
+            margin: var(--space-8) 0;
+        }
+        
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1280px) {
+            .game-main-layout {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+            
+            .stats-panel {
+                max-height: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-main-layout {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-12);
+            }
+            
+            .board-container {
+                order: 1;
+            }
+            
+            .stats-panel {
+                order: 2;
+                max-height: none;
+            }
+            
+            .board {
+                width: 100%;
+                max-width: 100vw;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .board {
+                grid-template-columns: repeat(11, 1fr);
+                grid-template-rows: repeat(11, 1fr);
+                border-width: 2px;
+            }
+            
+            .space {
+                font-size: 6px;
+                padding: 0.5px;
+                min-height: 28px;
+            }
+            
+            .space-name {
+                font-size: 5px;
+                line-height: 1.1;
+            }
+            
+            .space-price {
+                font-size: 4px;
+            }
+            
+            .color-bar {
+                height: 10%;
+            }
+            
+            .token {
+                width: 14px;
+                height: 14px;
+                font-size: 9px;
+                border-width: 1px;
+            }
+            
+            .house-indicator {
+                font-size: 6px;
+                top: 15%;
+            }
+            
+            .owner-indicator {
+                height: 2px;
+                bottom: 15%;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .game-title {
+                font-size: 32px;
+                letter-spacing: 1px;
+            }
+            
+            .start-container {
+                padding: var(--space-16);
+            }
+            
+            .theme-selector {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .theme-btn {
+                font-size: 11px;
+                padding: 6px 10px;
+                min-width: 85px;
+            }
+            
+            .board {
+                font-size: 8px;
+                max-width: calc(100vw - 16px);
+                margin: 0;
+                width: 100%;
+            }
+            
+            .space {
+                font-size: 7px;
+                padding: 1px;
+            }
+            
+            .space-name {
+                font-size: 6px;
+            }
+            
+            .token {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
+                border-width: 2px;
+            }
+            
+            .die {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
+            
+            .roll-btn {
+                font-size: 14px;
+                padding: 10px 16px;
+                min-height: 40px;
+            }
+            
+            .board-center {
+                padding: var(--space-8);
+            }
+            
+            .dice-container {
+                gap: var(--space-8);
+                margin-bottom: var(--space-12);
+            }
+            
+            .game-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: var(--space-16);
+                max-width: 90vw;
+                font-size: 13px;
+            }
+            
+            .modal-header {
+                font-size: var(--font-size-xl);
+            }
+            
+            .property-card {
+                padding: var(--space-12);
+            }
+            
+            .property-image {
+                font-size: 48px;
+                margin-bottom: var(--space-12);
+            }
+            
+            .property-details {
+                font-size: 13px;
+            }
+            
+            .property-details div {
+                padding: var(--space-6) 0;
+            }
+            
+            .announcement {
+                font-size: var(--font-size-base);
+                padding: var(--space-12);
+                min-width: 200px;
+                max-width: 90vw;
+                border-width: 2px;
+            }
+            
+            .action-popup {
+                min-width: 280px;
+                max-width: 90vw;
+                padding: var(--space-20);
+                font-size: var(--font-size-base);
+                border-width: 3px;
+            }
+            
+            .action-popup-icon {
+                font-size: 36px;
+            }
+            
+            .action-popup-player {
+                font-size: var(--font-size-lg);
+            }
+            
+            .action-popup-message {
+                font-size: var(--font-size-base);
+            }
+            
+            .player-properties h3 {
+                font-size: var(--font-size-base);
+                padding: var(--space-6);
+            }
+            
+            .property-item {
+                padding: var(--space-6);
+                margin-bottom: var(--space-6);
+            }
+            
+            .property-item-name {
+                font-size: 11px;
+            }
+            
+            .property-item-emoji {
+                font-size: 18px;
+            }
+            
+            .stats-panel {
+                max-height: none;
+                padding: var(--space-12);
+            }
+            
+            .stats-panel h2 {
+                font-size: var(--font-size-lg);
+            }
+            
+            .player-stat-card {
+                margin-bottom: var(--space-8);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .token {
+                width: 35px;
+                height: 35px;
+                font-size: 24px;
+            }
+        }
+        
+        /* ACTION POPUP SYSTEM */
+        .action-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            border: 4px solid var(--color-primary);
+            border-radius: 20px;
+            padding: 32px;
+            font-size: 20px;
+            font-weight: 600;
+            z-index: 2000;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.3);
+            text-align: center;
+            min-width: 400px;
+            max-width: 550px;
+            opacity: 0;
+            pointer-events: auto;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+        
+        .action-popup.show {
+            animation: popupIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        
+        .action-popup.hide {
+            animation: popupOut 0.3s ease-out forwards;
+        }
+        
+        @keyframes popupIn {
+            from { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        
+        @keyframes popupOut {
+            from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            to { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+        
+        .action-popup-icon {
+            font-size: 48px;
+            margin-bottom: var(--space-12);
+        }
+        
+        .action-popup-player {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-8);
+        }
+        
+        .action-popup-message {
+            font-size: var(--font-size-lg);
+            line-height: 1.5;
+        }
+        
+        .action-popup-amount {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-8);
+        }
+        
+        [data-theme="dark"] .action-popup {
+            background: rgba(38, 40, 40, 0.95);
+            color: var(--color-text);
+        }
+        
+        /* Announcement */
+        .announcement {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 3px solid currentColor;
+            border-radius: 20px;
+            padding: var(--space-24);
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            z-index: 2000;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 50px currentColor;
+            animation: announceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), glowPulse 2s ease-in-out infinite;
+            text-align: center;
+            min-width: 300px;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 30px currentColor; }
+            50% { box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 60px currentColor, 0 0 80px currentColor; }
+        }
+        
+        @keyframes announceIn {
+            0% { transform: translate(-50%, -50%) scale(0.3) rotate(-10deg); opacity: 0; }
+            60% { transform: translate(-50%, -50%) scale(1.15) rotate(5deg); }
+            80% { transform: translate(-50%, -50%) scale(0.95) rotate(-2deg); }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 9999;
+            animation: confettiFall 3s linear forwards;
+        }
+        
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Music Control Button */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+        }
+        
+        .music-control.playing {
+            animation: musicPulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--color-border);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="startScreen">
+        <h1 class="game-title">🇮🇳 MONOPOLY INDIA 🇮🇳</h1>
+        <div class="music-control" id="musicControl" title="Toggle Music">🎵</div>
+        <div class="start-container">
+            <div class="form-group">
+                <label for="playerCount">Number of Players (2-5):</label>
+                <select id="playerCount">
+                    <option value="2">2 Players</option>
+                    <option value="3">3 Players</option>
+                    <option value="4" selected>4 Players</option>
+                    <option value="5">5 Players</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="difficulty">AI Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div id="playerSetup" class="player-setup">
+                <!-- Player inputs will be generated here -->
+            </div>
+            
+            <button class="btn" id="startGameBtn">Start Game</button>
+            <button class="btn btn-secondary" id="loadGameBtn">Load Saved Game</button>
+        </div>
+    </div>
+    
+    <!-- Game Activity Log Panel -->
+    <div class="activity-log-panel" id="activityLogPanel">
+        <div class="activity-log-header">
+            <span>📋 Game Activity Log</span>
+            <button class="btn" style="padding: 4px 12px; font-size: 12px; background: rgba(255,255,255,0.2); min-width: auto;" onclick="toggleActivityLog()">✕</button>
+        </div>
+        <div class="activity-log-content" id="activityLogContent">
+            <!-- Activity entries will be added here -->
+        </div>
+    </div>
+    
+    <!-- Log Toggle Button (Mobile) -->
+    <button class="log-toggle" id="logToggle" onclick="toggleActivityLog()" title="Toggle Activity Log">📋</button>
+    
+    <!-- Game Screen -->
+    <div id="gameScreen">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="current-player" id="currentPlayerDisplay">🎲 Starting...</div>
+                <div class="theme-selector">
+                    <button class="theme-btn" data-theme="royal">👑 Royal</button>
+                    <button class="theme-btn" data-theme="forest">🌲 Forest</button>
+                    <button class="theme-btn" data-theme="sunset">🌅 Sunset</button>
+                    <button class="theme-btn" data-theme="midnight">🌙 Midnight</button>
+                    <button class="theme-btn" data-theme="ocean">🌊 Ocean</button>
+                    <button class="theme-btn" data-theme="sakura">🌸 Sakura</button>
+                    <button class="theme-btn" data-theme="neon">⚡ Neon</button>
+                    <button class="theme-btn active" data-theme="classic">🎲 Classic</button>
+                    <button class="theme-btn" data-theme="desert">🏜️ Desert</button>
+                </div>
+            </div>
+            
+            <div class="game-main-layout">
+                <div class="board-container">
+                    <div class="board" id="board">
+                    <!-- Board spaces will be generated here -->
+                    <div class="board-center">
+                        <div class="dice-container">
+                            <div class="die" id="die1">1</div>
+                            <div class="die" id="die2">1</div>
+                        </div>
+                        <button class="roll-btn" id="rollBtn">Roll Dice</button>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="stats-panel">
+                    <h2>🎮 Player Statistics</h2>
+                    <div id="playersStatsDisplay"></div>
+                    
+                    <!-- CHANCE & COMMUNITY CHEST RULES -->
+                    <div style="margin-top: var(--space-24); border-top: 3px solid var(--color-border); padding-top: var(--space-16);">
+                        <h2 style="font-size: var(--font-size-xl); margin-bottom: var(--space-12); color: var(--color-primary);">🎲 Chance &amp; Community Chest Rules</h2>
+                        
+                        <div style="margin-bottom: var(--space-16);">
+                            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--space-8); color: var(--color-text); background: var(--color-bg-1); padding: var(--space-8); border-radius: var(--radius-base);">🎲 CHANCE CARDS</h3>
+                            <div style="font-size: 12px; line-height: 1.6;">
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>1.</strong> Advance to GO → Collect ₹200 salary</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>2.</strong> Advance to Agra (Visit Taj Mahal!) → If pass GO, collect ₹200</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>3.</strong> Advance to Udaipur → If pass GO, collect ₹200</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>4.</strong> Go to Jail → Do not pass GO, do not collect ₹200</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>5.</strong> Bank pays you ₹50 dividend</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>6.</strong> Go back 3 spaces → Move backward 3 spaces</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>7.</strong> You won a Bollywood dance competition! → Collect ₹100</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-primary);"><strong>8.</strong> Monsoon repairs needed → Pay ₹25 per house and ₹100 per hotel</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--space-8); color: var(--color-text); background: var(--color-bg-2); padding: var(--space-8); border-radius: var(--radius-base);">📋 COMMUNITY CHEST</h3>
+                            <div style="font-size: 12px; line-height: 1.6;">
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>1.</strong> Advance to GO → Collect ₹200</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>2.</strong> Bank error in your favor → Collect ₹200</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>3.</strong> Ayurvedic treatment fees → Pay ₹50</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>4.</strong> From sale of stock → Receive ₹50</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>5.</strong> Go to Jail → Do not pass GO</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>6.</strong> GST refund → Collect ₹20</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>7.</strong> Pay hospital fees → Pay ₹100</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>8.</strong> Pay IIT coaching fees → Pay ₹150</div>
+                                <div style="padding: var(--space-6); margin-bottom: var(--space-4); background: var(--color-surface); border-radius: var(--radius-base); border-left: 3px solid var(--color-success);"><strong>9.</strong> You won Miss/Mr. India pageant! → Collect ₹10</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: var(--space-12); padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base); font-size: 11px; line-height: 1.5;">
+                            <strong>📌 NOTES:</strong><br>
+                            • Cards are drawn randomly<br>
+                            • Follow all card instructions<br>
+                            • Some cards can change game outcome!<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- End Screen -->
+    <div id="endScreen">
+        <div class="winner-card">
+            <div class="winner-title">🏆 WINNER! 🏆</div>
+            <div id="winnerInfo"></div>
+            <div class="winner-stats" id="winnerStats"></div>
+            <button class="btn" id="restartBtn">New Game</button>
+            <button class="btn btn-secondary" id="mainMenuBtn">Main Menu</button>
+        </div>
+    </div>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu" id="menu">
+        <h2>Menu</h2>
+        <div class="menu-item" id="menuResume">Resume Game</div>
+        <div class="menu-item" id="menuSave">Save Game</div>
+        <div class="menu-item" id="menuLoad">Load Game</div>
+        <div class="menu-item" id="menuLeaderboard">Leaderboard</div>
+        <div class="menu-item" id="menuSettings">Settings</div>
+        <div class="menu-item" id="menuNewGame">New Game</div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header" id="modalHeader"></div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-actions" id="modalActions"></div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align: center; padding: var(--space-24); background: var(--color-surface); margin-top: var(--space-24); border-top: 2px solid var(--color-border);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="font-size: var(--font-size-base); margin-bottom: var(--space-8);">© 2025 Rahul Rai. All rights reserved. | Version 2.0 | Last Updated: November 15, 2025</p>
+            <p><a href="https://portfolio-rahulrai.netlify.app/" target="_blank" style="color: var(--color-primary); text-decoration: none; font-weight: 600; font-size: var(--font-size-lg);">🌐 Visit My Portfolio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // GAME DATA - INDIAN STATES
+        const BOARD_SPACES = [
+            { name: "GO", type: "corner", position: 0 },
+            { name: "Himachal Pradesh", type: "property", price: 60, rent: [2, 10, 30, 90, 160, 250], color: "brown", group: "brown", image: "🏔️" },
+            { name: "Community Chest", type: "chest", position: 2 },
+            { name: "Uttarakhand", type: "property", price: 60, rent: [4, 20, 60, 180, 320, 450], color: "brown", group: "brown", image: "⛰️" },
+            { name: "Income Tax", type: "tax", amount: 200, position: 4 },
+            { name: "Central Railway", type: "railroad", price: 200, position: 5, image: "🚄" },
+            { name: "Punjab", type: "property", price: 100, rent: [6, 30, 90, 270, 400, 550], color: "lightblue", group: "lightblue", image: "🌾" },
+            { name: "Chance", type: "chance", position: 7 },
+            { name: "Haryana", type: "property", price: 100, rent: [6, 30, 90, 270, 400, 550], color: "lightblue", group: "lightblue", image: "🚜" },
+            { name: "Rajasthan", type: "property", price: 120, rent: [8, 40, 100, 300, 450, 600], color: "lightblue", group: "lightblue", image: "🏜️" },
+            { name: "Jail", type: "corner", position: 10 },
+            { name: "Madhya Pradesh", type: "property", price: 140, rent: [10, 50, 150, 450, 625, 750], color: "pink", group: "pink", image: "🌳" },
+            { name: "Water Resources", type: "utility", price: 150, position: 12, image: "💧" },
+            { name: "Chhattisgarh", type: "property", price: 140, rent: [10, 50, 150, 450, 625, 750], color: "pink", group: "pink", image: "⛏️" },
+            { name: "Jharkhand", type: "property", price: 160, rent: [12, 60, 180, 500, 700, 900], color: "pink", group: "pink", image: "💎" },
+            { name: "Western Railway", type: "railroad", price: 200, position: 15, image: "🚂" },
+            { name: "Odisha", type: "property", price: 180, rent: [14, 70, 200, 550, 750, 950], color: "orange", group: "orange", image: "🏖️" },
+            { name: "Community Chest", type: "chest", position: 17 },
+            { name: "West Bengal", type: "property", price: 180, rent: [14, 70, 200, 550, 750, 950], color: "orange", group: "orange", image: "🌾" },
+            { name: "Bihar", type: "property", price: 200, rent: [16, 80, 220, 600, 800, 1000], color: "orange", group: "orange", image: "🕉️" },
+            { name: "Free Parking", type: "corner", position: 20 },
+            { name: "Uttar Pradesh", type: "property", price: 220, rent: [18, 90, 250, 700, 875, 1050], color: "red", group: "red", image: "🕌" },
+            { name: "Chance", type: "chance", position: 22 },
+            { name: "Gujarat", type: "property", price: 220, rent: [18, 90, 250, 700, 875, 1050], color: "red", group: "red", image: "⛰️" },
+            { name: "Assam", type: "property", price: 240, rent: [20, 100, 300, 750, 925, 1100], color: "red", group: "red", image: "🐘" },
+            { name: "Northern Railway", type: "railroad", price: 200, position: 25, image: "🚆" },
+            { name: "Karnataka", type: "property", price: 260, rent: [22, 110, 330, 800, 975, 1150], color: "yellow", group: "yellow", image: "🏛️" },
+            { name: "Telangana", type: "property", price: 260, rent: [22, 110, 330, 800, 975, 1150], color: "yellow", group: "yellow", image: "🕌" },
+            { name: "Power Generation", type: "utility", price: 150, position: 28, image: "⚡" },
+            { name: "Andhra Pradesh", type: "property", price: 280, rent: [24, 120, 360, 850, 1025, 1200], color: "yellow", group: "yellow", image: "🏞️" },
+            { name: "Go to Jail", type: "corner", position: 30 },
+            { name: "Tamil Nadu", type: "property", price: 300, rent: [26, 130, 390, 900, 1100, 1275], color: "green", group: "green", image: "🏝️" },
+            { name: "Kerala", type: "property", price: 300, rent: [26, 130, 390, 900, 1100, 1275], color: "green", group: "green", image: "🥥" },
+            { name: "Community Chest", type: "chest", position: 33 },
+            { name: "Goa", type: "property", price: 320, rent: [28, 150, 450, 1000, 1200, 1400], color: "green", group: "green", image: "🌊" },
+            { name: "Southern Railway", type: "railroad", price: 200, position: 35, image: "🚇" },
+            { name: "Chance", type: "chance", position: 36 },
+            { name: "Maharashtra", type: "property", price: 350, rent: [35, 175, 500, 1100, 1300, 1500], color: "darkblue", group: "darkblue", image: "🌃" },
+            { name: "Luxury Tax", type: "tax", amount: 100, position: 38 },
+            { name: "Delhi", type: "property", price: 400, rent: [50, 200, 600, 1400, 1700, 2000], color: "darkblue", group: "darkblue", image: "🏰" }
+        ];
+        
+        const CHANCE_CARDS = [
+            { text: "Advance to GO (Collect ₹200)", action: "move", destination: 0 },
+            { text: "Advance to Agra (Visit Taj Mahal!)", action: "move", destination: 24 },
+            { text: "Advance to Udaipur", action: "move", destination: 11 },
+            { text: "Go to Jail - Straight to jail!", action: "jail" },
+            { text: "Bank pays you ₹50 dividend", action: "money", amount: 50 },
+            { text: "Go back 3 spaces", action: "back", spaces: 3 },
+            { text: "You won a Bollywood dance competition! Collect ₹100", action: "money", amount: 100 },
+            { text: "Monsoon repairs needed: Pay ₹25 per house and ₹100 per hotel", action: "repairs", house: 25, hotel: 100 }
+        ];
+        
+        const COMMUNITY_CHEST = [
+            { text: "Advance to GO (Collect ₹200)", action: "move", destination: 0 },
+            { text: "Bank error in your favor. Collect ₹200", action: "money", amount: 200 },
+            { text: "Ayurvedic treatment fees. Pay ₹50", action: "money", amount: -50 },
+            { text: "From sale of stock you get ₹50", action: "money", amount: 50 },
+            { text: "Go to Jail - Do not pass GO!", action: "jail" },
+            { text: "GST refund. Collect ₹20", action: "money", amount: 20 },
+            { text: "Pay hospital fees of ₹100", action: "money", amount: -100 },
+            { text: "Pay IIT coaching fees of ₹150", action: "money", amount: -150 },
+            { text: "You won Miss/Mr. India pageant! Collect ₹10", action: "money", amount: 10 }
+        ];
+        
+        const PLAYER_TOKENS = [
+            { emoji: "🏛️", name: "Temple", color: "#FF1744", colorName: "RED" },
+            { emoji: "🏘️", name: "Building", color: "#1976D2", colorName: "BLUE" },
+            { emoji: "🕌", name: "Taj Mahal", color: "#00BCD4", colorName: "CYAN" },
+            { emoji: "⛩️", name: "Gate", color: "#FDD835", colorName: "GOLD" },
+            { emoji: "🏰", name: "Fort", color: "#8E24AA", colorName: "PURPLE" }
+        ];
+        
+        const COLOR_MAP = {
+            brown: "#8B4513",
+            lightblue: "#87CEEB",
+            pink: "#FF1493",
+            orange: "#FFA500",
+            red: "#DC143C",
+            yellow: "#FFD700",
+            green: "#228B22",
+            darkblue: "#0000CD"
+        };
+        
+        const BUILDING_COSTS = {
+            brown: 50,
+            lightblue: 50,
+            pink: 100,
+            orange: 100,
+            red: 150,
+            yellow: 150,
+            green: 200,
+            darkblue: 200
+        };
+        
+        // GAME STATE
+        let gameState = {
+            players: [],
+            currentPlayerIndex: 0,
+            difficulty: "medium",
+            soundEnabled: true,
+            voiceEnabled: false,
+            theme: "classic",
+            gameLog: [],
+            doublesCount: 0
+        };
+        
+        // AUDIO
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // ENHANCED AUDIO SYSTEM
+        let backgroundMusic = null;
+        let musicPlaying = false;
+        
+        function playSound(frequency, duration) {
+            if (!gameState.soundEnabled) return;
+            try {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                oscillator.frequency.value = frequency;
+                oscillator.type = 'sine';
+                gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + duration);
+            } catch (e) {}
+        }
+        
+        function playStartMusic() {
+            if (!gameState.soundEnabled) return;
+            const melody = [523, 587, 659, 698, 784, 880];
+            melody.forEach((freq, i) => {
+                setTimeout(() => playSound(freq, 0.3), i * 150);
+            });
+            startBackgroundMusic();
+        }
+        
+        function startBackgroundMusic() {
+            if (!gameState.soundEnabled || backgroundMusic) return;
+            try {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                oscillator.frequency.value = 220;
+                oscillator.type = 'sine';
+                gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
+                oscillator.start();
+                backgroundMusic = { oscillator, gainNode };
+                musicPlaying = true;
+                updateMusicControl();
+            } catch (e) {}
+        }
+        
+        function stopAllMusic() {
+            if (backgroundMusic) {
+                try {
+                    backgroundMusic.oscillator.stop();
+                } catch (e) {}
+                backgroundMusic = null;
+            }
+            musicPlaying = false;
+            updateMusicControl();
+        }
+        
+        function toggleMusic() {
+            if (musicPlaying) {
+                stopAllMusic();
+            } else {
+                startBackgroundMusic();
+            }
+        }
+        
+        function updateMusicControl() {
+            const control = document.getElementById('musicControl');
+            if (control) {
+                control.textContent = musicPlaying ? '🎵' : '🔇';
+                control.classList.toggle('playing', musicPlaying);
+            }
+        }
+        
+        function playPurchaseSound() {
+            if (!gameState.soundEnabled) return;
+            playSound(659, 0.15);
+            setTimeout(() => playSound(784, 0.15), 100);
+            setTimeout(() => playSound(1047, 0.2), 200);
+        }
+        
+        function playBuildingSound() {
+            if (!gameState.soundEnabled) return;
+            playSound(440, 0.1);
+            setTimeout(() => playSound(554, 0.1), 80);
+            setTimeout(() => playSound(659, 0.15), 160);
+        }
+        
+        function playVictoryMusic() {
+            if (!gameState.soundEnabled) return;
+            const victory = [523, 659, 784, 1047, 1319, 1568];
+            victory.forEach((freq, i) => {
+                setTimeout(() => playSound(freq, 0.4), i * 200);
+            });
+        }
+        
+        function playDiceRollSound() {
+            if (!gameState.soundEnabled) return;
+            const frequencies = [400, 500, 450, 550, 480, 520];
+            frequencies.forEach((freq, i) => {
+                setTimeout(() => playSound(freq, 0.08), i * 100);
+            });
+        }
+        
+        function speak(text) {
+            if (!gameState.voiceEnabled || !('speechSynthesis' in window)) return;
+            try {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 1.2;
+                utterance.lang = 'en-IN';
+                speechSynthesis.speak(utterance);
+            } catch (e) {}
+        }
+        
+        // PARTICLE EFFECTS
+        function createParticles(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'fixed';
+                    particle.style.width = '6px';
+                    particle.style.height = '6px';
+                    particle.style.borderRadius = '50%';
+                    particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = '-10px';
+                    particle.style.zIndex = '9999';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.opacity = '0.8';
+                    document.body.appendChild(particle);
+                    
+                    const duration = 2000 + Math.random() * 2000;
+                    const startTime = Date.now();
+                    const startLeft = parseFloat(particle.style.left);
+                    
+                    function animate() {
+                        const elapsed = Date.now() - startTime;
+                        const progress = elapsed / duration;
+                        
+                        if (progress < 1) {
+                            particle.style.top = (progress * 110) + 'vh';
+                            particle.style.left = startLeft + (Math.sin(progress * 10) * 5) + '%';
+                            particle.style.opacity = 0.8 - (progress * 0.8);
+                            requestAnimationFrame(animate);
+                        } else {
+                            particle.remove();
+                        }
+                    }
+                    animate();
+                }, i * 50);
+            }
+        }
+        
+        function createConfetti(count) {
+            const colors = ['#FFD700', '#FF6B35', '#00C853', '#FF1744', '#00BCD4', '#8E24AA'];
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+        
+        function createMassiveConfetti() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => createConfetti(5), i * 100);
+            }
+        }
+        
+        function createSparkles() {
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = '50%';
+                sparkle.style.top = '50%';
+                sparkle.style.fontSize = '24px';
+                sparkle.style.zIndex = '9999';
+                sparkle.style.pointerEvents = 'none';
+                document.body.appendChild(sparkle);
+                
+                const angle = (i / 15) * Math.PI * 2;
+                const distance = 100;
+                const duration = 1000;
+                const startTime = Date.now();
+                
+                function animate() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = elapsed / duration;
+                    
+                    if (progress < 1) {
+                        const currentDist = distance * progress;
+                        sparkle.style.transform = `translate(${Math.cos(angle) * currentDist}px, ${Math.sin(angle) * currentDist}px) scale(${1 - progress})`;
+                        sparkle.style.opacity = 1 - progress;
+                        requestAnimationFrame(animate);
+                    } else {
+                        sparkle.remove();
+                    }
+                }
+                animate();
+            }
+        }
+        
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            initStartScreen();
+            initThemeSelector();
+            initMenu();
+            initMusicControl();
+            createParticles(20);
+            createBackgroundSymbols();
+        });
+        
+        // CREATE ANIMATED BACKGROUND SYMBOLS
+        function createBackgroundSymbols() {
+            const symbols = ['🇮🇳', '⭐', '✨', '🌟', '🎊', '🎉', '🎯', '🏆'];
+            const speeds = ['floatSymbol', 'floatSymbolFast', 'floatSymbolSlow'];
+            
+            for (let i = 0; i < 15; i++) {
+                const symbol = document.createElement('div');
+                symbol.className = 'bg-symbol';
+                symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                symbol.style.left = Math.random() * 100 + '%';
+                symbol.style.animationName = speeds[Math.floor(Math.random() * speeds.length)];
+                symbol.style.animationDuration = (15 + Math.random() * 15) + 's';
+                symbol.style.animationDelay = Math.random() * 10 + 's';
+                document.body.appendChild(symbol);
+            }
+        }
+        
+        function initMusicControl() {
+            const musicControl = document.getElementById('musicControl');
+            if (musicControl) {
+                musicControl.addEventListener('click', () => {
+                    gameState.soundEnabled = !gameState.soundEnabled;
+                    toggleMusic();
+                });
+            }
+        }
+        
+        function initStartScreen() {
+            const playerCount = document.getElementById('playerCount');
+            const playerSetup = document.getElementById('playerSetup');
+            
+            playerCount.addEventListener('change', (e) => {
+                const count = parseInt(e.target.value);
+                playerSetup.innerHTML = '';
+                playerSetup.classList.add('active');
+                
+                for (let i = 0; i < count; i++) {
+                    const token = PLAYER_TOKENS[i];
+                    const div = document.createElement('div');
+                    div.className = 'player-input';
+                    div.innerHTML = `
+                        <div class="token-display">${token.emoji}</div>
+                        <input type="text" id="player${i}" placeholder="${i === 0 ? 'Your Name' : 'Computer ' + i}" value="${i === 0 ? 'Player 1' : 'Computer ' + i}">
+                    `;
+                    playerSetup.appendChild(div);
+                }
+            });
+            
+            // Trigger initial setup
+            playerCount.dispatchEvent(new Event('change'));
+            
+            const startBtn = document.getElementById('startGameBtn');
+            if (startBtn) {
+                startBtn.addEventListener('click', () => {
+                const count = parseInt(document.getElementById('playerCount').value);
+                let allNamesValid = true;
+                
+                for (let i = 0; i < count; i++) {
+                    const input = document.getElementById(`player${i}`);
+                    if (!input.value.trim()) {
+                        input.style.borderColor = 'red';
+                        allNamesValid = false;
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                }
+                
+                if (allNamesValid) {
+                    startNewGame();
+                } else {
+                    alert('Please enter names for all players!');
+                }
+            });}
+            
+            const loadBtn = document.getElementById('loadGameBtn');
+            if (loadBtn) {
+                loadBtn.addEventListener('click', loadGame);
+            }
+        }
+        
+        function startNewGame() {
+            const playerCount = parseInt(document.getElementById('playerCount').value);
+            const difficulty = document.getElementById('difficulty').value;
+            
+            gameState.players = [];
+            gameState.difficulty = difficulty;
+            gameState.currentPlayerIndex = 0;
+            gameState.gameLog = [];
+            gameState.doublesCount = 0;
+            
+            for (let i = 0; i < playerCount; i++) {
+                const nameInput = document.getElementById(`player${i}`);
+                const token = PLAYER_TOKENS[i];
+                
+                gameState.players.push({
+                    id: i,
+                    name: nameInput.value || (i === 0 ? 'Player 1' : `Computer ${i}`),
+                    token: token.emoji,
+                    color: token.color,
+                    colorName: token.colorName,
+                    cash: 1500,
+                    position: 0,
+                    properties: [],
+                    isAI: i > 0,
+                    inJail: false,
+                    jailTurns: 0,
+                    bankrupted: false
+                });
+            }
+            
+            // Initialize board ownership
+            BOARD_SPACES.forEach(space => {
+                space.owner = null;
+                space.houses = 0;
+                space.mortgaged = false;
+            });
+            
+            showScreen('gameScreen');
+            initBoard();
+            updateDisplay();
+            addLog(`🎮 Game started with ${playerCount} players!`);
+            addActivityLog('🎮', 'GAME', '#FFD700', 'Game Started', `${playerCount} players joined`);
+            playStartMusic();
+            createParticles(30);
+        }
+        
+        function showScreen(screenId) {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('endScreen').style.display = 'none';
+            document.getElementById(screenId).style.display = screenId === 'endScreen' ? 'flex' : 'block';
+        }
+        
+        // BOARD RENDERING
+        function initBoard() {
+            const board = document.getElementById('board');
+            const spaces = board.querySelectorAll('.space');
+            spaces.forEach(space => space.remove());
+            
+            // Board layout: 11x11 grid
+            // Bottom row (0-10): positions 0-10
+            // Right column (11-19): positions 11-19 (excluding corner)
+            // Top row (20-30): positions 20-30
+            // Left column (31-39): positions 31-39 (excluding corner)
+            
+            const positions = [
+                // Bottom row (GO to Jail corner)
+                [11, 11], [10, 11], [9, 11], [8, 11], [7, 11], [6, 11], [5, 11], [4, 11], [3, 11], [2, 11], [1, 11],
+                // Right column (going up)
+                [1, 10], [1, 9], [1, 8], [1, 7], [1, 6], [1, 5], [1, 4], [1, 3], [1, 2], [1, 1],
+                // Top row (Free Parking to Go to Jail)
+                [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [7, 1], [8, 1], [9, 1], [10, 1], [11, 1],
+                // Left column (going down)
+                [11, 2], [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10], [11, 11]
+            ];
+            
+            BOARD_SPACES.forEach((space, index) => {
+                const spaceEl = document.createElement('div');
+                spaceEl.className = 'space';
+                spaceEl.dataset.position = index;
+                const [col, row] = positions[index];
+                spaceEl.style.gridColumn = col;
+                spaceEl.style.gridRow = row;
+                
+                // Color bar for properties
+                if (space.type === 'property') {
+                    const colorBar = document.createElement('div');
+                    colorBar.className = 'color-bar';
+                    colorBar.style.background = COLOR_MAP[space.color];
+                    spaceEl.appendChild(colorBar);
+                }
+                
+                // Space image (for properties, railroads, utilities)
+                if (space.image) {
+                    const imageEl = document.createElement('div');
+                    imageEl.style.fontSize = 'clamp(10px, 2vw, 18px)';
+                    imageEl.textContent = space.image;
+                    spaceEl.appendChild(imageEl);
+                }
+                
+                // Space name
+                const nameEl = document.createElement('div');
+                nameEl.className = 'space-name';
+                nameEl.textContent = space.name;
+                spaceEl.appendChild(nameEl);
+                
+                // Price
+                if (space.price) {
+                    const priceEl = document.createElement('div');
+                    priceEl.className = 'space-price';
+                    priceEl.textContent = `$${space.price}`;
+                    spaceEl.appendChild(priceEl);
+                }
+                
+                // Tokens container
+                const tokensEl = document.createElement('div');
+                tokensEl.className = 'tokens';
+                spaceEl.appendChild(tokensEl);
+                
+                // House indicator
+                const houseEl = document.createElement('div');
+                houseEl.className = 'house-indicator';
+                spaceEl.appendChild(houseEl);
+                
+                // Owner indicator
+                const ownerEl = document.createElement('div');
+                ownerEl.className = 'owner-indicator';
+                spaceEl.appendChild(ownerEl);
+                
+                // Click handler
+                spaceEl.addEventListener('click', () => showPropertyCard(space));
+                
+                board.appendChild(spaceEl);
+            });
+            
+            // Position all players at GO
+            updateTokens();
+            
+            // Roll button
+            const rollBtn = document.getElementById('rollBtn');
+            if (rollBtn) {
+                rollBtn.addEventListener('click', rollDice);
+            }
+        }
+        
+        function updateTokens() {
+            // Clear all tokens
+            document.querySelectorAll('.tokens').forEach(el => {
+                if (el) el.innerHTML = '';
+            });
+            
+            // Place tokens at player positions
+            if (!gameState.players) return;
+            
+            gameState.players.forEach(player => {
+                if (player.bankrupted) return;
+                
+                const space = document.querySelector(`[data-position="${player.position}"]`);
+                if (space) {
+                    const tokensContainer = space.querySelector('.tokens');
+                    const token = document.createElement('div');
+                    token.className = 'token';
+                    token.style.background = player.color;
+                    token.textContent = player.token;
+                    tokensContainer.appendChild(token);
+                }
+            });
+        }
+        
+        function updateHouseIndicators() {
+            if (!BOARD_SPACES) return;
+            
+            BOARD_SPACES.forEach((space, index) => {
+                const spaceEl = document.querySelector(`[data-position="${index}"]`);
+                if (!spaceEl || !space) return;
+                if (spaceEl) {
+                    // Update house indicator
+                    if (space.type === 'property') {
+                        const indicator = spaceEl.querySelector('.house-indicator');
+                        if (space.mortgaged) {
+                            indicator.textContent = '⛔';
+                        } else if (space.houses === 5) {
+                            indicator.textContent = '🏨';
+                        } else if (space.houses > 0) {
+                            indicator.textContent = '🏠'.repeat(space.houses);
+                        } else {
+                            indicator.textContent = '';
+                        }
+                    }
+                    
+                    // Update owner indicator
+                    const ownerIndicator = spaceEl.querySelector('.owner-indicator');
+                    if (ownerIndicator && (space.type === 'property' || space.type === 'railroad' || space.type === 'utility')) {
+                        if (space.owner !== null) {
+                            const owner = gameState.players.find(p => p.id === space.owner);
+                            if (owner) {
+                                ownerIndicator.style.background = owner.color;
+                            }
+                        } else {
+                            ownerIndicator.style.background = 'transparent';
+                        }
+                    }
+                }
+            });
+        }
+        
+        // GAME LOGIC
+        function rollDice() {
+            if (!gameState.players || gameState.players.length === 0) {
+                console.error('No players in game');
+                return;
+            }
+            
+            const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+            if (!currentPlayer) {
+                console.error('Invalid current player');
+                return;
+            }
+            if (currentPlayer.bankrupted) {
+                nextTurn();
+                return;
+            }
+            
+            document.getElementById('rollBtn').disabled = true;
+            playDiceRollSound();
+            
+            // Animate dice
+            const die1El = document.getElementById('die1');
+            const die2El = document.getElementById('die2');
+            die1El.classList.add('rolling');
+            die2El.classList.add('rolling');
+            
+            setTimeout(() => {
+                let die1 = Math.floor(Math.random() * 6) + 1;
+                let die2 = Math.floor(Math.random() * 6) + 1;
+                let total = die1 + die2;
+                
+                // Ensure dice values are valid
+                if (isNaN(die1) || die1 < 1 || die1 > 6) die1 = 1;
+                if (isNaN(die2) || die2 < 1 || die2 > 6) die2 = 1;
+                total = die1 + die2;
+                
+                die1El.textContent = die1;
+                die2El.textContent = die2;
+                die1El.classList.remove('rolling');
+                die2El.classList.remove('rolling');
+                
+                addLog(`${currentPlayer.name} rolled ${die1} + ${die2} = ${total}`);
+                addActivityLog('🎲', currentPlayer.name, currentPlayer.color, `Rolled: ${total}`, `Dice: ${die1} + ${die2}`);
+                speak(`${currentPlayer.name} rolled ${total}`);
+                
+                // Check for doubles
+                if (die1 === die2) {
+                    gameState.doublesCount++;
+                    addLog(`Doubles! ${currentPlayer.name} gets another turn.`);
+                    
+                    if (gameState.doublesCount >= 3) {
+                        addLog(`Three doubles in a row! ${currentPlayer.name} goes to jail.`);
+                        sendToJail(currentPlayer);
+                        gameState.doublesCount = 0;
+                        setTimeout(() => {
+                            document.getElementById('rollBtn').disabled = false;
+                            nextTurn();
+                        }, 2000);
+                        return;
+                    }
+                } else {
+                    gameState.doublesCount = 0;
+                }
+                
+                // Handle jail
+                if (currentPlayer.inJail) {
+                    if (die1 === die2) {
+                        currentPlayer.inJail = false;
+                        currentPlayer.jailTurns = 0;
+                        addLog(`${currentPlayer.name} rolled doubles and got out of jail!`);
+                        addActivityLog('✅', currentPlayer.name, currentPlayer.color, 'Released from JAIL', 'Rolled doubles!');
+                    } else {
+                        currentPlayer.jailTurns++;
+                        if (currentPlayer.jailTurns >= 3) {
+                            showModal('Jail Time', 'You must pay $50 to get out of jail.', [
+                                { text: 'Pay $50', action: () => {
+                                    payMoney(currentPlayer, 50);
+                                    currentPlayer.inJail = false;
+                                    currentPlayer.jailTurns = 0;
+                                    closeModal();
+                                    movePlayer(currentPlayer, total);
+                                }}
+                            ]);
+                        } else {
+                            addLog(`${currentPlayer.name} stays in jail.`);
+                            setTimeout(() => {
+                                document.getElementById('rollBtn').disabled = false;
+                                if (die1 !== die2) nextTurn();
+                            }, 2000);
+                        }
+                        return;
+                    }
+                }
+                
+                movePlayer(currentPlayer, total);
+            }, 500);
+        }
+        
+        function movePlayer(player, spaces) {
+            if (!player || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            const oldPosition = player.position;
+            const newPosition = (player.position + spaces) % 40;
+            
+            // Animate token moving through each space
+            animateTokenMovement(player, oldPosition, newPosition, spaces, () => {
+                // Passed GO
+                if (newPosition < oldPosition || (newPosition === 0 && spaces > 0)) {
+                    addMoney(player, 200);
+                    addLog(`🎯 ${player.name} passed GO and collected ₹200!`);
+                    addActivityLog('🎯', player.name, player.color, 'Passed GO!', 'Collected $200 | Cash: $' + player.cash);
+                    playSound(660, 0.3);
+                }
+                
+                const landingSpace = BOARD_SPACES[newPosition];
+                addActivityLog('📍', player.name, player.color, `Moved to ${landingSpace.name}`, `Position: ${newPosition}`);
+                
+                setTimeout(() => {
+                    handleLanding(player);
+                }, 500);
+            });
+        }
+        
+        function animateTokenMovement(player, startPos, endPos, totalSpaces, callback) {
+            if (!player || player.bankrupted) {
+                if (callback) callback();
+                return;
+            }
+            
+            let currentStep = 0;
+            const stepsToTake = totalSpaces;
+            const stepDuration = 200; // milliseconds per step
+            
+            function moveOneStep() {
+                if (currentStep < stepsToTake) {
+                    currentStep++;
+                    const nextPos = (startPos + currentStep) % 40;
+                    player.position = nextPos;
+                    
+                    // Highlight the current space
+                    const spaceEl = document.querySelector(`[data-position="${nextPos}"]`);
+                    if (spaceEl) {
+                        spaceEl.style.background = 'rgba(255, 215, 0, 0.3)';
+                        spaceEl.style.transform = 'scale(1.1)';
+                        spaceEl.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.6)';
+                        spaceEl.style.transition = 'all 0.2s';
+                        
+                        // Show space name announcement
+                        const spaceName = BOARD_SPACES[nextPos].name;
+                        addLog(`Moving through... ${spaceName}`);
+                        
+                        setTimeout(() => {
+                            spaceEl.style.background = '';
+                            spaceEl.style.transform = '';
+                            spaceEl.style.boxShadow = '';
+                        }, stepDuration * 2);
+                    }
+                    
+                    updateTokens();
+                    playSound(400 + (currentStep * 20), 0.1);
+                    
+                    setTimeout(moveOneStep, stepDuration);
+                } else {
+                    // Final landing animation
+                    const finalSpace = document.querySelector(`[data-position="${endPos}"]`);
+                    if (finalSpace) {
+                        finalSpace.style.background = 'rgba(255, 215, 0, 0.5)';
+                        finalSpace.style.transform = 'scale(1.15)';
+                        finalSpace.style.boxShadow = '0 0 30px rgba(255, 215, 0, 1)';
+                        finalSpace.style.transition = 'all 0.3s';
+                        
+                        setTimeout(() => {
+                            finalSpace.style.background = '';
+                            finalSpace.style.transform = '';
+                            finalSpace.style.boxShadow = '';
+                        }, 1500);
+                    }
+                    
+                    const landingSpace = BOARD_SPACES[endPos];
+                    showAnnouncement(`${player.token} Landed on ${landingSpace.name}!`, player.color);
+                    playSound(880, 0.3);
+                    
+                    callback();
+                }
+            }
+            
+            moveOneStep();
+        }
+        
+        function handleLanding(player) {
+            if (!player || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            const space = BOARD_SPACES[player.position];
+            if (!space) {
+                console.error('Invalid space');
+                endTurn();
+                return;
+            }
+            addLog(`${player.name} landed on ${space.name}`);
+            speak(`${player.name} landed on ${space.name}`);
+            
+            switch (space.type) {
+                case 'property':
+                case 'railroad':
+                case 'utility':
+                    if (!space.owner) {
+                        offerPurchase(player, space);
+                    } else if (space.owner !== player.id && !space.mortgaged) {
+                        payRent(player, space);
+                    } else {
+                        endTurn();
+                    }
+                    break;
+                case 'tax':
+                    payTax(player, space);
+                    break;
+                case 'chance':
+                    drawCard(player, CHANCE_CARDS);
+                    break;
+                case 'chest':
+                    drawCard(player, COMMUNITY_CHEST);
+                    break;
+                case 'corner':
+                    if (space.name === 'Go to Jail') {
+                        sendToJail(player);
+                    }
+                    endTurn();
+                    break;
+                default:
+                    endTurn();
+            }
+        }
+        
+        function offerPurchase(player, space) {
+            if (!player || !space || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            if (player.isAI) {
+                // AI decision
+                setTimeout(() => {
+                    if (player.bankrupted) {
+                        endTurn();
+                        return;
+                    }
+                    
+                    const shouldBuy = aiShouldBuy(player, space);
+                    if (shouldBuy && player.cash >= space.price) {
+                        try {
+                            buyProperty(player, space);
+                            addLog(`🤖 AI ${player.name} bought ${space.name}`);
+                        } catch (e) {
+                            console.error('AI purchase error:', e);
+                            addLog(`🤖 AI ${player.name} declined to buy ${space.name}`);
+                        }
+                    } else {
+                        addLog(`🤖 AI ${player.name} declined to buy ${space.name}`);
+                    }
+                    endTurn();
+                }, 1500);
+            } else {
+                const rentInfo = space.type === 'property' ? `<br><small>Base rent: $${space.rent[0]}</small>` : '';
+                showModal(
+                    `🏠 Buy ${space.name}?`,
+                    `<div style="text-align: center; font-size: 48px; margin: 16px 0;">${space.image}</div>
+                    <div style="font-size: 18px; margin: 12px 0;">
+                        <strong>Price: ₹${space.price}</strong><br>
+                        Your cash: ₹${player.cash}${rentInfo}
+                    </div>`,
+                    [
+                        { text: `✔️ Buy for ₹${space.price}`, action: () => {
+                            if (player.cash >= space.price) {
+                                buyProperty(player, space);
+                                closeModal();
+                                endTurn();
+                            } else {
+                                addLog('❌ Not enough cash!');
+                            }
+                        }},
+                        { text: '❌ Decline', action: () => {
+                            addLog(`${player.name} declined to buy ${space.name}`);
+                            closeModal();
+                            endTurn();
+                        }}
+                    ]
+                );
+            }
+        }
+        
+        function buyProperty(player, space) {
+            payMoney(player, space.price);
+            space.owner = player.id;
+            player.properties.push(BOARD_SPACES.indexOf(space));
+            addLog(`🏠 ${player.name} bought ${space.name} for ₹${space.price}`);
+            addActivityLog('✅', player.name, player.color, `Bought ${space.name}`, `Price: $${space.price} | Cash: $${player.cash}`);
+            playSound(880, 0.2);
+            playPurchaseSound();
+            
+            createConfetti(10);
+            updateDisplay();
+            
+            // Show action popup AFTER display update
+            setTimeout(() => {
+                showActionPopup('purchase', player, { spaceName: space.name, price: space.price });
+            }, 300);
+        }
+        
+        function showAnnouncement(message, color) {
+            const announcement = document.createElement('div');
+            announcement.className = 'announcement';
+            announcement.style.color = color;
+            announcement.style.borderColor = color;
+            announcement.innerHTML = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                announcement.style.animation = 'fadeOut 0.5s';
+                setTimeout(() => announcement.remove(), 500);
+            }, 3000);
+        }
+        
+        function payRent(player, space) {
+            if (!player || !space || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            const owner = gameState.players.find(p => p.id === space.owner);
+            if (!owner || owner.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            let rent = 0;
+            
+            if (space.type === 'property') {
+                rent = space.rent[space.houses || 0];
+                // Double rent if monopoly but no houses
+                if (space.houses === 0 && hasMonopoly(owner, space.group)) {
+                    rent *= 2;
+                    addLog(`🔥 Monopoly! Rent doubled!`);
+                }
+            } else if (space.type === 'railroad') {
+                const railroadCount = owner.properties.filter(p => BOARD_SPACES[p].type === 'railroad').length;
+                rent = 25 * Math.pow(2, railroadCount - 1);
+            } else if (space.type === 'utility') {
+                const utilityCount = owner.properties.filter(p => BOARD_SPACES[p].type === 'utility').length;
+                const die1 = parseInt(document.getElementById('die1').textContent);
+                const die2 = parseInt(document.getElementById('die2').textContent);
+                rent = (die1 + die2) * (utilityCount === 1 ? 4 : 10);
+            }
+            
+            addLog(`💸 ${player.name} pays $${rent} rent to ${owner.name}`);
+            playSound(220, 0.3);
+            
+            if (player.cash >= rent) {
+                payMoney(player, rent);
+                addMoney(owner, rent);
+                addActivityLog('💰', player.name, player.color, `Paid $${rent} Rent`, `To: ${owner.name} | On: ${space.name} | Cash: $${player.cash}`);
+                
+                // Show action popup AFTER cash is updated
+                setTimeout(() => {
+                    showActionPopup('rent', player, { amount: rent, owner: owner.name });
+                }, 300);
+            } else {
+                handleBankruptcy(player, owner, rent);
+            }
+            
+            endTurn();
+        }
+        
+        function payTax(player, space) {
+            if (!player || !space || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            let amount = space.amount;
+            
+            // Luxury tax can be 10% of wealth
+            if (space.name === 'Luxury Tax') {
+                const wealth = calculateWealth(player);
+                const tenPercent = Math.floor(wealth * 0.1);
+                amount = Math.min(amount, tenPercent);
+            }
+            
+            addLog(`💸 ${player.name} pays $${amount} in ${space.name}`);
+            playSound(300, 0.3);
+            
+            if (player.cash >= amount) {
+                payMoney(player, amount);
+                addActivityLog('💸', player.name, player.color, `Paid ${space.name}`, `Tax: $${amount} | Cash: $${player.cash}`);
+            } else {
+                handleBankruptcy(player, null, amount);
+            }
+            
+            endTurn();
+        }
+        
+        function drawCard(player, deck) {
+            if (!player || !deck || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            const card = deck[Math.floor(Math.random() * deck.length)];
+            const cardType = deck === CHANCE_CARDS ? 'Chance' : 'Community Chest';
+            const cardIcon = deck === CHANCE_CARDS ? '🎲' : '📦';
+            
+            addActivityLog(cardIcon, player.name, player.color, `Drew ${cardType} Card`, card.text);
+            playSound(523, 0.2);
+            
+            if (player.isAI) {
+                addLog(`${cardIcon} ${player.name} drew: ${card.text}`);
+                setTimeout(() => executeCard(player, card), 2000);
+            } else {
+                showModal(
+                    `${cardIcon} ${cardType} Card`,
+                    `<div style="padding: 20px; background: var(--color-bg-1); border-radius: 12px; font-size: 16px; line-height: 1.6; text-align: center;">
+                        <strong>${card.text}</strong>
+                    </div>`,
+                    [{ text: '✅ OK', action: () => {
+                        closeModal();
+                        executeCard(player, card);
+                    }}]
+                );
+            }
+        }
+        
+        function executeCard(player, card) {
+            if (!player || !card || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            switch (card.action) {
+                case 'money':
+                    if (card.amount > 0) {
+                        addMoney(player, card.amount);
+                        addLog(`💵 ${player.name} received ₹${card.amount}`);
+                        addActivityLog('💵', player.name, player.color, 'Card: Received Money', `Amount: $${card.amount} | Cash: $${player.cash}`);
+                    } else {
+                        const amount = Math.abs(card.amount);
+                        if (player.cash >= amount) {
+                            payMoney(player, amount);
+                            addLog(`💸 ${player.name} paid ₹${amount}`);
+                            addActivityLog('💸', player.name, player.color, 'Card: Paid Money', `Amount: $${amount} | Cash: $${player.cash}`);
+                        } else {
+                            handleBankruptcy(player, null, amount);
+                        }
+                    }
+                    break;
+                case 'move':
+                    const oldPos = player.position;
+                    player.position = card.destination;
+                    if (card.destination === 0 || (card.destination > oldPos && oldPos !== 0)) {
+                        addMoney(player, 200);
+                        addLog(`🎯 ${player.name} passed GO and collected ₹200`);
+                    }
+                    updateTokens();
+                    setTimeout(() => handleLanding(player), 1000);
+                    return;
+                case 'jail':
+                    sendToJail(player);
+                    break;
+                case 'back':
+                    const newPos = (player.position - card.spaces + 40) % 40;
+                    player.position = newPos;
+                    updateTokens();
+                    setTimeout(() => handleLanding(player), 1000);
+                    return;
+                case 'repairs':
+                    let total = 0;
+                    player.properties.forEach(propIndex => {
+                        const prop = BOARD_SPACES[propIndex];
+                        if (prop.type === 'property') {
+                            if (prop.houses === 5) {
+                                total += card.hotel;
+                            } else {
+                                total += prop.houses * card.house;
+                            }
+                        }
+                    });
+                    if (total > 0) {
+                        addLog(`🔧 ${player.name} pays ₹${total} for repairs`);
+                        if (player.cash >= total) {
+                            payMoney(player, total);
+                            addActivityLog('🔧', player.name, player.color, 'Card: Paid Repairs', `Cost: $${total} | Cash: $${player.cash}`);
+                        } else {
+                            handleBankruptcy(player, null, total);
+                        }
+                    }
+                    break;
+            }
+            
+            endTurn();
+        }
+        
+        function sendToJail(player) {
+            if (!player || player.bankrupted) return;
+            
+            player.position = 10; // Jail position
+            player.inJail = true;
+            player.jailTurns = 0;
+            addLog(`${player.name} went to jail!`);
+            addActivityLog('🔒', player.name, player.color, 'Sent to JAIL', 'Do not pass GO');
+            
+            // Show action popup
+            showActionPopup('jail', player, {});
+            
+            updateTokens();
+        }
+        
+        function addMoney(player, amount) {
+            if (!player || player.bankrupted) return;
+            
+            player.cash += amount;
+            updateDisplay();
+        }
+        
+        function payMoney(player, amount) {
+            if (!player || player.bankrupted) return;
+            
+            player.cash -= amount;
+            if (player.cash < 0) {
+                handleBankruptcy(player, null, Math.abs(amount));
+            }
+            updateDisplay();
+        }
+        
+        function handleBankruptcy(player, creditor, debt) {
+            // Validation check
+            if (!player || player.bankrupted) {
+                endTurn();
+                return;
+            }
+            
+            // Try to raise money by mortgaging
+            const canRaise = tryRaiseMoney(player, debt);
+            
+            if (!canRaise || player.cash < 0) {
+                player.bankrupted = true;
+                addLog(`💔 ${player.name} is bankrupt!`);
+                addActivityLog('💥', player.name, player.color, 'BANKRUPTCY!', 'Player eliminated from game');
+                playSound(200, 0.5);
+                
+                // Show action popup
+                showActionPopup('bankruptcy', player, {});
+                
+                showAnnouncement(`💔 ${player.name} is BANKRUPT!`, '#ff0000');
+                
+                // Transfer properties to creditor or bank
+                player.properties.forEach(propIndex => {
+                    const prop = BOARD_SPACES[propIndex];
+                    if (creditor) {
+                        prop.owner = creditor.id;
+                        creditor.properties.push(propIndex);
+                    } else {
+                        prop.owner = null;
+                        prop.houses = 0;
+                        prop.mortgaged = false;
+                    }
+                });
+                
+                player.properties = [];
+                player.cash = 0;
+                updateDisplay();
+                updateHouseIndicators();
+                
+                setTimeout(() => checkWinner(), 1500);
+            }
+        }
+        
+        function tryRaiseMoney(player, needed) {
+            if (!player || player.bankrupted) return false;
+            
+            // Try to sell houses first
+            if (player.isAI) {
+                // Sell houses/hotels
+                const propsWithBuildings = player.properties
+                    .map(i => BOARD_SPACES[i])
+                    .filter(p => p.houses > 0)
+                    .sort((a, b) => b.houses - a.houses);
+                
+                for (const prop of propsWithBuildings) {
+                    while (prop.houses > 0 && player.cash < needed) {
+                        sellHouse(player, prop);
+                    }
+                    if (player.cash >= needed) break;
+                }
+                
+                // Then mortgage properties
+                const sortedProps = player.properties
+                    .map(i => BOARD_SPACES[i])
+                    .filter(p => !p.mortgaged && (p.houses || 0) === 0)
+                    .sort((a, b) => a.price - b.price);
+                
+                for (const prop of sortedProps) {
+                    if (player.cash >= needed) break;
+                    mortgageProperty(player, prop);
+                }
+            } else {
+                // For human players, show options
+                showModal(
+                    'Need Money!',
+                    `You need $${needed} but only have $${player.cash}. You must sell houses or mortgage properties.`,
+                    [
+                        { text: 'View Properties', action: () => {
+                            closeModal();
+                            // Show property management
+                        }}
+                    ]
+                );
+            }
+            
+            return player.cash >= needed;
+        }
+        
+        function hasMonopoly(player, group) {
+            if (!player || !group || player.bankrupted) return false;
+            
+            const groupProps = BOARD_SPACES.filter(s => s.group === group);
+            return groupProps.every(p => p.owner === player.id);
+        }
+        
+        function aiShouldBuy(player, space) {
+            if (!player || !space || player.bankrupted) return false;
+            
+            const difficultySettings = {
+                easy: { buyChance: 0.5, cashReserve: 0.3 },
+                medium: { buyChance: 0.75, cashReserve: 0.2 },
+                hard: { buyChance: 0.95, cashReserve: 0.15 }
+            };
+            
+            const settings = difficultySettings[gameState.difficulty] || difficultySettings.medium;
+            
+            // Don't buy if it would leave too little cash
+            const cashAfterPurchase = player.cash - space.price;
+            const minCashReserve = 1500 * settings.cashReserve;
+            if (cashAfterPurchase < minCashReserve) return false;
+            
+            // Strategic value based on monopoly potential
+            const groupProps = BOARD_SPACES.filter(s => s.group === space.group);
+            const ownedInGroup = groupProps.filter(p => p.owner === player.id).length;
+            const strategicValue = (ownedInGroup + 1) / groupProps.length;
+            
+            // AI is more likely to buy if it completes or nearly completes a set
+            const monopolyBonus = strategicValue > 0.5 ? 1.2 : 1.0;
+            
+            return Math.random() < settings.buyChance * strategicValue * monopolyBonus;
+        }
+        
+        function aiShouldBuild(player) {
+            if (!player || player.bankrupted) return;
+            
+            // AI building strategy
+            const difficultySettings = {
+                easy: { threshold: 900, buildChance: 0.4 },
+                medium: { threshold: 700, buildChance: 0.6 },
+                hard: { threshold: 500, buildChance: 0.85 }
+            };
+            
+            const settings = difficultySettings[gameState.difficulty] || difficultySettings.medium;
+            if (player.cash < settings.threshold) return;
+            
+            // Random chance based on difficulty
+            if (Math.random() > settings.buildChance) return;
+            
+            // Find monopolies
+            const monopolies = [];
+            const groups = ['brown', 'lightblue', 'pink', 'orange', 'red', 'yellow', 'green', 'darkblue'];
+            
+            groups.forEach(group => {
+                if (hasMonopoly(player, group)) {
+                    const props = BOARD_SPACES.filter(s => s.group === group && s.owner === player.id && !s.mortgaged);
+                    if (props.length > 0) {
+                        monopolies.push({ group, properties: props });
+                    }
+                }
+            });
+            
+            // Build on most valuable monopoly with room for buildings
+            for (const monopoly of monopolies) {
+                const buildCost = BUILDING_COSTS[monopoly.group];
+                if (player.cash < buildCost + 200) continue; // Keep cash reserve
+                
+                // Find property with fewest houses (build evenly)
+                const sortedProps = monopoly.properties.sort((a, b) => (a.houses || 0) - (b.houses || 0));
+                const propToBuild = sortedProps[0];
+                
+                if (propToBuild && (propToBuild.houses || 0) < 5 && !propToBuild.mortgaged) {
+                    try {
+                        buildHouse(player, propToBuild);
+                        showAnnouncement(`🏗️ ${player.name} built on ${propToBuild.name}!`, player.color);
+                    } catch (e) {
+                        console.error('AI build error:', e);
+                    }
+                    return;
+                }
+            }
+        }
+        
+        function endTurn() {
+            const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+            
+            // AI tries to build if it's their turn ending
+            if (currentPlayer.isAI && gameState.doublesCount === 0 && !currentPlayer.bankrupted) {
+                setTimeout(() => aiShouldBuild(currentPlayer), 500);
+            }
+            
+            updateDisplay();
+            
+            setTimeout(() => {
+                // If rolled doubles, same player goes again
+                if (gameState.doublesCount > 0 && gameState.doublesCount < 3 && !currentPlayer.bankrupted) {
+                    document.getElementById('rollBtn').disabled = false;
+                    addLog(`🎲 ${currentPlayer.name} rolls again (doubles)!`);
+                    
+                    // Auto-roll for AI on doubles
+                    if (currentPlayer.isAI) {
+                        setTimeout(() => {
+                            const btn = document.getElementById('rollBtn');
+                            if (!currentPlayer.bankrupted && btn && !btn.disabled) {
+                                btn.click();
+                            }
+                        }, 1500);
+                    }
+                } else {
+                    gameState.doublesCount = 0;
+                    nextTurn();
+                }
+            }, 1500);
+        }
+        
+        function nextTurn() {
+            // Validation
+            if (!gameState.players || gameState.players.length === 0) {
+                console.error('No players found');
+                return;
+            }
+            
+            // Find next active player
+            let attempts = 0;
+            do {
+                gameState.currentPlayerIndex = (gameState.currentPlayerIndex + 1) % gameState.players.length;
+                attempts++;
+                if (attempts >= gameState.players.length) {
+                    // All players bankrupt
+                    checkWinner();
+                    return;
+                }
+            } while (gameState.players[gameState.currentPlayerIndex].bankrupted);
+            
+            const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+            addLog(`🎲 --- ${currentPlayer.name}'s turn ---`);
+            addActivityLog('🎲', currentPlayer.name, currentPlayer.color, 'Turn Started', `Cash: $${currentPlayer.cash} | Properties: ${currentPlayer.properties.length}`);
+            speak(`${currentPlayer.name}'s turn`);
+            updateDisplay();
+            updateTokens(); // Refresh token animations
+            
+            document.getElementById('rollBtn').disabled = false;
+            
+            // Auto-roll for AI
+            if (currentPlayer.isAI && !currentPlayer.bankrupted) {
+                const rollBtn = document.getElementById('rollBtn');
+                if (rollBtn) {
+                    rollBtn.textContent = 'AI is thinking...';
+                    setTimeout(() => {
+                        const currentP = gameState.players[gameState.currentPlayerIndex];
+                        if (currentP && !currentP.bankrupted && rollBtn && !rollBtn.disabled) {
+                            rollBtn.textContent = 'Roll Dice';
+                            rollBtn.click();
+                        }
+                    }, 1500);
+                }
+            } else {
+                const rollBtn = document.getElementById('rollBtn');
+                if (rollBtn) rollBtn.textContent = 'Roll Dice';
+            }
+        }
+        
+        function checkWinner() {
+            if (!gameState.players) return;
+            
+            const activePlayers = gameState.players.filter(p => !p.bankrupted);
+            
+            if (activePlayers.length === 1) {
+                const winner = activePlayers[0];
+                setTimeout(() => showWinner(winner), 1000);
+            } else if (activePlayers.length === 0) {
+                // Edge case: everyone bankrupt at once
+                showModal('Game Over', 'All players are bankrupt! Game ends in a draw.', [
+                    { text: 'New Game', action: () => {
+                        closeModal();
+                        showScreen('startScreen');
+                    }}
+                ]);
+            }
+        }
+        
+        function showWinner(winner) {
+            // Victory fanfare
+            playSound(523, 0.2);
+            setTimeout(() => playSound(659, 0.2), 200);
+            setTimeout(() => playSound(784, 0.3), 400);
+            setTimeout(() => playSound(1047, 0.5), 700);
+            
+            speak(`${winner.name} wins the game!`);
+            
+            // Activity log
+            addActivityLog('🏆', winner.name, winner.color, 'WINNER!', `Final Cash: $${winner.cash} | Properties: ${winner.properties.length}`);
+            
+            // Save to leaderboard
+            saveToLeaderboard(winner);
+            
+            document.getElementById('winnerInfo').innerHTML = `
+                <div class="player-token" style="font-size: 80px;">${winner.token}</div>
+                <h2>${winner.name}</h2>
+            `;
+            
+            document.getElementById('winnerStats').innerHTML = `
+                <div>💰 Final Cash: ₹${winner.cash}</div>
+                <div>🏠 Properties Owned: ${winner.properties.length}</div>
+                <div>💎 Total Wealth: ₹${calculateWealth(winner)}</div>
+            `;
+            
+            showScreen('endScreen');
+            playVictoryMusic();
+            createMassiveConfetti();
+            
+            document.getElementById('restartBtn').onclick = () => {
+                showScreen('startScreen');
+                stopAllMusic();
+            };
+            
+            document.getElementById('mainMenuBtn').onclick = () => {
+                showScreen('startScreen');
+            };
+        }
+        
+        function calculateWealth(player) {
+            if (!player) return 0;
+            
+            let wealth = player.cash;
+            player.properties.forEach(propIndex => {
+                const prop = BOARD_SPACES[propIndex];
+                wealth += prop.price;
+                if (prop.houses) {
+                    wealth += prop.houses * 50;
+                }
+            });
+            return wealth;
+        }
+        
+        // UI UPDATES
+        // ACTION POPUP QUEUE
+        let actionQueue = [];
+        let currentActionPopup = null;
+        
+        function showActionPopup(type, player, details) {
+            const action = { type, player, details };
+            actionQueue.push(action);
+            
+            if (!currentActionPopup) {
+                processNextAction();
+            }
+        }
+        
+        function processNextAction() {
+            if (actionQueue.length === 0) {
+                currentActionPopup = null;
+                return;
+            }
+            
+            const action = actionQueue.shift();
+            currentActionPopup = action;
+            
+            const popup = document.createElement('div');
+            popup.className = 'action-popup';
+            popup.style.borderColor = action.player.color;
+            popup.style.borderWidth = '5px';
+            
+            let icon = '🎲';
+            let title = '';
+            let message = '';
+            let amount = '';
+            
+            switch(action.type) {
+                case 'purchase':
+                    icon = '✅';
+                    title = 'Bought Property';
+                    message = `${action.details.spaceName}`;
+                    amount = `Price: $${action.details.price}<br>Remaining Cash: $${action.player.cash}`;
+                    break;
+                case 'rent':
+                    icon = '💰';
+                    title = 'Paid Rent';
+                    message = `To ${action.details.owner}`;
+                    amount = `Rent: $${action.details.amount}<br>Remaining: $${action.player.cash}`;
+                    break;
+                case 'building':
+                    icon = action.details.buildingType === 'hotel' ? '🏨' : '🏠';
+                    title = `Built ${action.details.buildingType.charAt(0).toUpperCase() + action.details.buildingType.slice(1)}`;
+                    message = `On: ${action.details.spaceName}`;
+                    amount = `Cash Remaining: $${action.player.cash}`;
+                    break;
+                case 'mortgage':
+                    icon = '💔';
+                    title = 'Mortgaged Property';
+                    message = `${action.details.spaceName}`;
+                    amount = `Received: $${action.details.amount}<br>New Cash: $${action.player.cash}`;
+                    break;
+                case 'sell':
+                    icon = '📉';
+                    title = 'Sold Building';
+                    message = `From: ${action.details.spaceName}`;
+                    amount = `Received: $${action.details.amount}<br>Cash: $${action.player.cash}`;
+                    break;
+                case 'bankruptcy':
+                    icon = '💥';
+                    title = 'BANKRUPTCY!';
+                    message = 'Eliminated from game';
+                    amount = 'Better luck next time!';
+                    break;
+                case 'jail':
+                    icon = '🔒';
+                    title = 'In JAIL';
+                    message = 'Do not pass GO';
+                    amount = 'Pay $50 or roll doubles to exit';
+                    break;
+                case 'card':
+                    icon = '🎰';
+                    title = 'Card Drawn';
+                    message = action.details.cardText;
+                    amount = '';
+                    break;
+            }
+            
+            popup.innerHTML = `
+                <div style="font-size: 60px; margin-bottom: 16px;">${icon}</div>
+                <div style="font-size: 24px; font-weight: 700; margin-bottom: 12px; color: ${action.player.color};">
+                    ${action.player.token} ${action.player.name} (${action.player.colorName})
+                </div>
+                <div style="border-top: 3px solid ${action.player.color}; margin: 16px 0; padding-top: 16px;">
+                    <div style="font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--color-text);">${title}</div>
+                    <div style="font-size: 18px; margin-bottom: 12px; color: var(--color-text);">${message}</div>
+                    ${amount ? `<div style="font-size: 15px; color: var(--color-text-secondary); line-height: 1.6;">${amount}</div>` : ''}
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+            
+            // Show animation
+            setTimeout(() => popup.classList.add('show'), 10);
+            
+            // Auto dismiss or click to dismiss
+            const dismissPopup = () => {
+                popup.classList.remove('show');
+                popup.classList.add('hide');
+                setTimeout(() => {
+                    popup.remove();
+                    processNextAction();
+                }, 300);
+            };
+            
+            popup.addEventListener('click', dismissPopup);
+            setTimeout(dismissPopup, 3000);
+        }
+        
+        function updatePlayerProperties() {
+            // Update unified player stats panel
+            if (!gameState.players) return;
+            
+            const container = document.getElementById('playersStatsDisplay');
+            if (!container) return;
+            
+            let html = '';
+            
+            gameState.players.forEach((player, index) => {
+                const isCurrentPlayer = gameState.currentPlayerIndex === index;
+                const statusText = player.bankrupted ? 'BANKRUPT' : (player.inJail ? 'IN JAIL' : (isCurrentPlayer ? 'ACTIVE TURN' : 'WAITING'));
+                const statusColor = player.bankrupted ? '#ff4444' : (player.inJail ? '#ff9800' : (isCurrentPlayer ? '#4CAF50' : '#999'));
+                
+                // Count monopolies
+                const groups = ['brown', 'lightblue', 'pink', 'orange', 'red', 'yellow', 'green', 'darkblue'];
+                const monopolyCount = groups.filter(group => hasMonopoly(player, group)).length;
+                
+                // Count total buildings
+                const totalBuildings = player.properties.reduce((sum, i) => {
+                    const prop = BOARD_SPACES[i];
+                    return sum + (prop.houses || 0);
+                }, 0);
+                
+                html += `
+                    <div class="player-stat-card ${isCurrentPlayer ? 'active' : ''}" style="border-color: ${player.color};">
+                        <div class="player-stat-header">
+                            <div class="player-stat-token">${player.token}</div>
+                            <div class="player-stat-info">
+                                <div class="player-stat-name" style="color: ${player.color};">${player.name}</div>
+                                <div class="player-stat-status" style="background: ${statusColor}; color: white;">${statusText}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="player-stat-details">
+                            <div class="stat-item">
+                                <span class="stat-label">💵 Cash</span>
+                                <span class="stat-value">$${player.cash.toLocaleString()}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">🏠 Properties</span>
+                                <span class="stat-value">${player.properties.length}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">🏛️ Monopolies</span>
+                                <span class="stat-value">${monopolyCount}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">🏗️ Buildings</span>
+                                <span class="stat-value">${totalBuildings}</span>
+                            </div>
+                        </div>
+                        
+                        ${player.properties.length > 0 ? `
+                            <div style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
+                                <div style="font-size: 11px; font-weight: 600; color: var(--color-text-secondary); margin-bottom: var(--space-4);">OWNED PROPERTIES:</div>
+                                ${player.properties.map(propIndex => {
+                                    const prop = BOARD_SPACES[propIndex];
+                                    const buildings = prop.houses === 5 ? '🏨' : (prop.houses > 0 ? '🏠'.repeat(Math.min(prop.houses, 3)) : '');
+                                    const mortgaged = prop.mortgaged ? '⛔' : '';
+                                    return `<div class="property-item" style="border-left-color: ${prop.type === 'property' ? COLOR_MAP[prop.color] : '#666'};" onclick="showPropertyCard(BOARD_SPACES[${propIndex}])">${prop.image || '🏛️'} ${prop.name} ${buildings}${mortgaged}</div>`;
+                                }).map(propIndex => {
+                                    const prop = BOARD_SPACES[propIndex];
+                                    const buildings = prop.houses === 5 ? '🏨' : (prop.houses > 0 ? '🏠'.repeat(Math.min(prop.houses, 3)) : '');
+                                    const mortgaged = prop.mortgaged ? '⛔' : '';
+                                    // Bright color card with prominent background
+                                    const bgColor = prop.type === 'property' ? COLOR_MAP[prop.color] : (prop.type === 'railroad' ? '#000000' : '#1E90FF');
+                                    return `<div class="property-item" style="background: ${bgColor}; color: white; border-left-color: white; border-left-width: 5px; padding: var(--space-12); margin-bottom: var(--space-8);" onclick="showPropertyCard(BOARD_SPACES[${propIndex}])">
+                                        <div class="property-item-emoji">${prop.image || '🏛️'}</div>
+                                        <div class="property-item-name" style="color: white; font-weight: 700;">${prop.name}</div>
+                                        <div style="font-size: 14px;">${buildings}${mortgaged}</div>
+                                    </div>`;
+                                }).join('')}
+                            </div>
+                        ` : '<div style="text-align: center; padding: var(--space-12); color: var(--color-text-secondary); font-size: 12px;">No properties owned</div>'}
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        function updateDisplay() {
+            if (!gameState.players || gameState.players.length === 0) return;
+            
+            const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+            if (!currentPlayer) return;
+            const displayText = currentPlayer.bankrupted ? 'Game Over' : `${currentPlayer.token} ${currentPlayer.name}'s Turn`;
+            document.getElementById('currentPlayerDisplay').innerHTML = `<span style="color: ${currentPlayer.color}; font-weight: 700;">${displayText}</span>`;
+            
+            // Update 4-player property displays
+            updatePlayerProperties();
+            
+            // Player stats are now updated in updatePlayerProperties()
+            
+            // Update house indicators
+            updateHouseIndicators();
+        }
+        
+        // ACTIVITY LOG FUNCTIONS
+        function toggleActivityLog() {
+            const panel = document.getElementById('activityLogPanel');
+            panel.classList.toggle('active');
+        }
+        
+        function addActivityLog(icon, playerName, playerColor, action, details = '') {
+            const timestamp = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+            const content = document.getElementById('activityLogContent');
+            
+            const entry = document.createElement('div');
+            entry.className = 'activity-entry';
+            
+            const isHighlight = action.includes('BANKRUPTCY') || action.includes('WINNER') || action.includes('Eliminated');
+            if (isHighlight) {
+                entry.classList.add('highlight');
+            }
+            
+            entry.innerHTML = `
+                <span class="timestamp">[${timestamp}]</span>
+                <div>
+                    <span class="action-icon">${icon}</span>
+                    <span class="player-name" style="color: ${playerColor};">${playerName}</span>
+                    <span>${action}</span>
+                    ${details ? `<div style="margin-top: 4px; color: var(--color-text-secondary); font-size: 12px;">${details}</div>` : ''}
+                </div>
+            `;
+            
+            content.insertBefore(entry, content.firstChild);
+            
+            // Keep only last 50 entries
+            while (content.children.length > 50) {
+                content.removeChild(content.lastChild);
+            }
+            
+            // Auto-scroll to top (newest)
+            content.scrollTop = 0;
+        }
+        
+        function addLog(message) {
+            const timestamp = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            gameState.gameLog.unshift({ message, timestamp });
+            if (gameState.gameLog.length > 15) gameState.gameLog.pop();
+            
+            const logDisplay = document.getElementById('gameLog');
+            if (logDisplay) {
+                logDisplay.innerHTML = '';
+                
+                gameState.gameLog.forEach((log, index) => {
+                    const entry = document.createElement('div');
+                    entry.className = 'log-entry';
+                    entry.style.opacity = 1 - (index * 0.05);
+                    entry.innerHTML = `<small style="color: var(--color-text-secondary);">${log.timestamp}</small><br>${log.message}`;
+                    logDisplay.appendChild(entry);
+                });
+            }
+        }
+        
+        // MODAL
+        function showModal(title, body, actions) {
+            const modalHeader = document.getElementById('modalHeader');
+            const modalBody = document.getElementById('modalBody');
+            
+            if (!modalHeader || !modalBody) return;
+            
+            modalHeader.textContent = title;
+            modalBody.innerHTML = body;
+            
+            const actionsEl = document.getElementById('modalActions');
+            actionsEl.innerHTML = '';
+            
+            actions.forEach(action => {
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.textContent = action.text;
+                btn.onclick = action.action;
+                actionsEl.appendChild(btn);
+            });
+            
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+        
+        function showPropertyCard(space) {
+            if (!space || (space.type !== 'property' && space.type !== 'railroad' && space.type !== 'utility')) return;
+            
+            const owner = space.owner !== null ? gameState.players.find(p => p.id === space.owner) : null;
+            const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+            
+            let body = `<div class="property-card">`;
+            
+            if (space.type === 'property') {
+                const buildCost = BUILDING_COSTS[space.group] || 50;
+                const canBuild = owner && owner.id === currentPlayer.id && hasMonopoly(owner, space.group) && !space.mortgaged && space.houses < 5;
+                let canBuildReason = '';
+                if (!owner) canBuildReason = 'Property is unowned';
+                else if (owner.id !== currentPlayer.id) canBuildReason = 'You don\'t own this';
+                else if (!hasMonopoly(owner, space.group)) canBuildReason = 'Need monopoly';
+                else if (space.mortgaged) canBuildReason = 'Property is mortgaged';
+                else if (space.houses >= 5) canBuildReason = 'Max buildings reached';
+                else canBuildReason = 'Ready to build!';
+                
+                const canBuildText = canBuild ? '<span style="color: #00ff00; font-weight: bold;">✓ ' + canBuildReason + '</span>' : '<span style="color: var(--color-text-secondary);">✗ ' + canBuildReason + '</span>';
+                
+                const currentRent = space.houses === 0 && owner && hasMonopoly(owner, space.group) ? space.rent[0] * 2 : space.rent[space.houses];
+                const mortgageValue = Math.floor(space.price / 2);
+                
+                body += `
+                    <div style="text-align: center; font-size: 64px; margin-bottom: 12px; animation: bounceIn 0.5s;">${space.image}</div>
+                    <div class="property-header" style="background: ${COLOR_MAP[space.color]}; font-size: 18px; padding: 16px;">
+                        ${space.name}
+                    </div>
+                    <div class="property-details" style="font-size: 15px;">
+                        <div style="background: var(--color-bg-1); padding: 8px; margin: 8px 0; border-radius: 6px;"><span><strong>💰 Purchase Price</strong></span><span><strong>₹${space.price}</strong></span></div>
+                        <div style="background: var(--color-bg-2); padding: 8px; margin: 8px 0; border-radius: 6px;"><span><strong>📊 Current Rent</strong></span><span><strong style="color: var(--color-primary);">₹${currentRent}</strong></span></div>
+                        <div><span>Rent (Base):</span><span>₹${space.rent[0]}</span></div>
+                        <div><span>With 1 🏠:</span><span>₹${space.rent[1]}</span></div>
+                        <div><span>With 2 🏠:</span><span>₹${space.rent[2]}</span></div>
+                        <div><span>With 3 🏠:</span><span>₹${space.rent[3]}</span></div>
+                        <div><span>With 4 🏠:</span><span>₹${space.rent[4]}</span></div>
+                        <div><span>With 🏨 Hotel:</span><span>₹${space.rent[5]}</span></div>
+                        <div style="background: var(--color-bg-3); padding: 4px; margin-top: 8px;"><span><strong>🏗️ Building Cost:</strong></span><span><strong>₹${buildCost}</strong></span></div>
+                        <div style="background: var(--color-bg-4); padding: 4px;"><span><strong>💳 Mortgage Value:</strong></span><span><strong>₹${mortgageValue}</strong></span></div>
+                        <div style="margin-top: 8px; padding: 8px; background: ${owner ? 'var(--color-bg-5)' : 'var(--color-bg-6)'}; border-radius: 6px;"><span><strong>👤 Owner:</strong></span><span><strong>${owner ? owner.token + ' ' + owner.name : '🏦 Bank (Available)'}</strong></span></div>
+                        <div style="padding: 8px; background: var(--color-bg-7); border-radius: 6px;"><span><strong>🏛️ Buildings:</strong></span><span><strong>${space.houses === 5 ? '🏨 Hotel' : (space.houses > 0 ? '🏠'.repeat(space.houses) + ' (' + space.houses + ')' : 'None')}</strong></span></div>
+                        <div style="padding: 8px; background: ${space.mortgaged ? 'var(--color-bg-4)' : 'var(--color-bg-8)'}; border-radius: 6px;"><span><strong>Status:</strong></span><span><strong>${space.mortgaged ? '⛔ MORTGAGED' : '✅ Active'}</strong></span></div>
+                        <div style="margin-top: 8px; padding: 12px; background: var(--color-surface); border: 2px solid ${canBuild ? 'var(--color-success)' : 'var(--color-border)'}; border-radius: 6px; text-align: center;">${canBuildText}</div>
+                    </div>
+                `;
+            } else {
+                const mortgageValue = Math.floor(space.price / 2);
+                let rentInfo = '';
+                if (space.type === 'railroad') {
+                    const rrCount = owner ? owner.properties.filter(p => BOARD_SPACES[p].type === 'railroad').length : 0;
+                    rentInfo = `
+                        <div><span>1 Railway owned:</span><span>₹25</span></div>
+                        <div><span>2 Railways owned:</span><span>₹50</span></div>
+                        <div><span>3 Railways owned:</span><span>₹100</span></div>
+                        <div><span>4 Railways owned:</span><span>₹200</span></div>
+                        ${owner ? `<div style="background: var(--color-bg-2); padding: 8px; margin-top: 8px; border-radius: 6px;"><span><strong>Current Rent:</strong></span><span><strong>₹${25 * Math.pow(2, rrCount - 1)}</strong></span></div>` : ''}
+                    `;
+                } else if (space.type === 'utility') {
+                    const utilCount = owner ? owner.properties.filter(p => BOARD_SPACES[p].type === 'utility').length : 0;
+                    rentInfo = `
+                        <div><span>1 Utility owned:</span><span>4× dice roll</span></div>
+                        <div><span>2 Utilities owned:</span><span>10× dice roll</span></div>
+                        ${owner ? `<div style="background: var(--color-bg-2); padding: 8px; margin-top: 8px; border-radius: 6px;"><span><strong>Current Multiplier:</strong></span><span><strong>${utilCount === 1 ? '4' : '10'}×</strong></span></div>` : ''}
+                    `;
+                }
+                
+                body += `
+                    <div style="text-align: center; font-size: 64px; margin-bottom: 12px; animation: bounceIn 0.5s;">${space.image}</div>
+                    <div class="property-header" style="background: ${space.type === 'railroad' ? '#000' : '#1E90FF'}; font-size: 18px; padding: 16px;">
+                        ${space.name}
+                    </div>
+                    <div class="property-details" style="font-size: 15px;">
+                        <div style="background: var(--color-bg-1); padding: 8px; margin: 8px 0; border-radius: 6px;"><span><strong>💰 Price:</strong></span><span><strong>₹${space.price}</strong></span></div>
+                        ${rentInfo}
+                        <div style="background: var(--color-bg-4); padding: 8px; margin-top: 8px; border-radius: 6px;"><span><strong>💳 Mortgage Value:</strong></span><span><strong>₹${mortgageValue}</strong></span></div>
+                        <div style="margin-top: 8px; padding: 12px; background: ${owner ? 'var(--color-bg-5)' : 'var(--color-bg-6)'}; border-radius: 6px; text-align: center;"><span><strong>👤 Owner:</strong></span><span><strong>${owner ? owner.token + ' ' + owner.name : '🏦 Bank (Available)'}</strong></span></div>
+                    </div>
+                `;
+            }
+            
+            body += `</div>`;
+            
+            const actions = [{ text: 'Close', action: closeModal }];
+            
+            // Building actions for property owner
+            if (owner && owner.id === currentPlayer.id && space.type === 'property' && !space.mortgaged) {
+                const buildCost = BUILDING_COSTS[space.group] || 50;
+                
+                if (hasMonopoly(owner, space.group)) {
+                    // Check if can build evenly
+                    const groupProps = BOARD_SPACES.filter(s => s.group === space.group && s.owner === owner.id);
+                    const minHouses = Math.min(...groupProps.map(p => p.houses || 0));
+                    const canBuildHere = (space.houses || 0) === minHouses && (space.houses || 0) < 5;
+                    
+                    if (canBuildHere && owner.cash >= buildCost) {
+                        actions.unshift({
+                            text: `Build ${space.houses === 4 ? 'Hotel' : 'House'} (₹${buildCost})`,
+                            action: () => {
+                                buildHouse(owner, space);
+                                closeModal();
+                                showPropertyCard(space);
+                            }
+                        });
+                    }
+                    
+                    // Sell house option
+                    if (space.houses > 0) {
+                        const sellText = space.houses === 5 ? 'Sell Hotel' : 'Sell House';
+                        actions.unshift({
+                            text: `${sellText} (₹${buildCost / 2})`,
+                            action: () => {
+                                sellHouse(owner, space);
+                                closeModal();
+                                showPropertyCard(space);
+                            }
+                        });
+                    }
+                }
+                
+                // Mortgage option
+                if (!space.mortgaged && (space.houses || 0) === 0) {
+                    actions.unshift({
+                        text: `Mortgage (₹${Math.floor(space.price / 2)})`,
+                        action: () => {
+                            mortgageProperty(owner, space);
+                            closeModal();
+                        }
+                    });
+                } else if (space.mortgaged) {
+                    const unmortgageCost = Math.floor(space.price / 2 * 1.1);
+                    actions.unshift({
+                        text: `Unmortgage (₹${unmortgageCost})`,
+                        action: () => {
+                            if (owner.cash >= unmortgageCost) {
+                                unmortgageProperty(owner, space);
+                                closeModal();
+                            }
+                        }
+                    });
+                }
+            }
+            
+            showModal(space.name, body, actions);
+        }
+        
+        function buildHouse(player, space) {
+            if (!player || !space || player.bankrupted) return;
+            
+            const buildCost = BUILDING_COSTS[space.group] || 50;
+            
+            // Check if building evenly
+            const groupProps = BOARD_SPACES.filter(s => s.group === space.group && s.owner === player.id);
+            const minHouses = Math.min(...groupProps.map(p => p.houses || 0));
+            
+            if ((space.houses || 0) > minHouses) {
+                addLog(`Must build evenly across ${space.group} properties!`);
+                return;
+            }
+            
+            if (player.cash >= buildCost && (space.houses || 0) < 5 && !space.mortgaged) {
+                payMoney(player, buildCost);
+                space.houses = (space.houses || 0) + 1;
+                const buildType = space.houses === 5 ? 'hotel' : 'house';
+                addLog(`🏗️ ${player.name} built a ${buildType} on ${space.name}`);
+                const newRent = space.rent[space.houses];
+                addActivityLog('🏗️', player.name, player.color, `Built ${buildType} on ${space.name}`, `Cost: $${buildCost} | New Rent: $${newRent} | Cash: $${player.cash}`);
+                playSound(660, 0.3);
+                playBuildingSound();
+                
+                updateHouseIndicators();
+                updateDisplay();
+                
+                // Show action popup AFTER updates
+                setTimeout(() => {
+                    showActionPopup('building', player, { buildingType: buildType, spaceName: space.name });
+                }, 300);
+            }
+        }
+        
+        function sellHouse(player, space) {
+            if (!player || !space || player.bankrupted) return;
+            
+            const buildCost = BUILDING_COSTS[space.group] || 50;
+            const sellPrice = Math.floor(buildCost / 2);
+            
+            // Check if selling evenly
+            const groupProps = BOARD_SPACES.filter(s => s.group === space.group && s.owner === player.id);
+            const maxHouses = Math.max(...groupProps.map(p => p.houses || 0));
+            
+            if ((space.houses || 0) < maxHouses) {
+                addLog(`Must sell evenly across ${space.group} properties!`);
+                return;
+            }
+            
+            if (space.houses > 0) {
+                const buildType = space.houses === 5 ? 'hotel' : 'house';
+                space.houses--;
+                addMoney(player, sellPrice);
+                addLog(`💰 ${player.name} sold a ${buildType} on ${space.name} for ₹${sellPrice}`);
+                addActivityLog('📩', player.name, player.color, `Sold ${buildType} on ${space.name}`, `Received: $${sellPrice} | Cash: $${player.cash}`);
+                playSound(300, 0.2);
+                updateHouseIndicators();
+                updateDisplay();
+                
+                // Show action popup
+                setTimeout(() => {
+                    showActionPopup('sell', player, { spaceName: space.name, amount: sellPrice });
+                }, 300);
+            }
+        }
+        
+        function mortgageProperty(player, space) {
+            if (!player || !space || player.bankrupted) return;
+            
+            // Check if any buildings on this color group
+            const groupProps = BOARD_SPACES.filter(s => s.group === space.group && s.owner === player.id);
+            const hasBuildings = groupProps.some(p => (p.houses || 0) > 0);
+            
+            if (hasBuildings) {
+                addLog(`Cannot mortgage ${space.name} - must sell all buildings in ${space.group} group first!`);
+                return;
+            }
+            
+            const mortgageValue = Math.floor(space.price / 2);
+            space.mortgaged = true;
+            addMoney(player, mortgageValue);
+            addLog(`⛔ ${player.name} mortgaged ${space.name} for ₹${mortgageValue}`);
+            updateDisplay();
+            updateHouseIndicators();
+            
+            // Show action popup
+            setTimeout(() => {
+                showActionPopup('mortgage', player, { spaceName: space.name, amount: mortgageValue });
+            }, 300);
+        }
+        
+        function unmortgageProperty(player, space) {
+            const unmortgageCost = Math.floor(space.price / 2 * 1.1);
+            payMoney(player, unmortgageCost);
+            space.mortgaged = false;
+            addLog(`✅ ${player.name} unmortgaged ${space.name} for ₹${unmortgageCost}`);
+            updateDisplay();
+        }
+        
+        // THEME
+        function initThemeSelector() {
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const theme = btn.dataset.theme;
+                    document.body.dataset.theme = theme;
+                    gameState.theme = theme;
+                    
+                    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show theme change notification
+                    const themeName = btn.textContent.trim();
+                    showAnnouncement(`🎨 Theme changed to ${themeName}!`, 'var(--color-primary)');
+                    playSound(523, 0.2);
+                });
+            });
+            
+            // Set default theme
+            const defaultTheme = 'classic';
+            document.body.dataset.theme = defaultTheme;
+            gameState.theme = defaultTheme;
+        }
+        
+        // MENU
+        function initMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const menu = document.getElementById('menu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            hamburger.addEventListener('click', () => {
+                menu.classList.add('active');
+                menuOverlay.classList.add('active');
+            });
+            
+            menuOverlay.addEventListener('click', () => {
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+            
+            document.getElementById('menuResume').addEventListener('click', () => {
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+            
+            document.getElementById('menuSave').addEventListener('click', () => {
+                saveGame();
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+            
+            document.getElementById('menuLoad').addEventListener('click', () => {
+                loadGame();
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+            
+            document.getElementById('menuLeaderboard').addEventListener('click', () => {
+                showLeaderboard();
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+            
+            document.getElementById('menuSettings').addEventListener('click', () => {
+                showSettings();
+            });
+            
+            document.getElementById('menuNewGame').addEventListener('click', () => {
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                showScreen('startScreen');
+            });
+        }
+        
+        // SAVE/LOAD - Using JavaScript variables instead of localStorage
+        let savedGameState = null;
+        
+        function saveGame() {
+            savedGameState = JSON.parse(JSON.stringify(gameState));
+            // Also save board state
+            const boardState = BOARD_SPACES.map(space => ({
+                owner: space.owner,
+                houses: space.houses,
+                mortgaged: space.mortgaged
+            }));
+            savedGameState.boardState = boardState;
+            
+            showModal('Game Saved', 'Your game has been saved successfully!', [
+                { text: 'OK', action: closeModal }
+            ]);
+        }
+        
+        function loadGame() {
+            if (!savedGameState) {
+                showModal('No Saved Game', 'There is no saved game to load.', [
+                    { text: 'OK', action: closeModal }
+                ]);
+                return;
+            }
+            
+            // Restore game state
+            const boardState = savedGameState.boardState;
+            delete savedGameState.boardState;
+            
+            gameState = JSON.parse(JSON.stringify(savedGameState));
+            
+            // Restore board
+            BOARD_SPACES.forEach((space, index) => {
+                if (boardState[index]) {
+                    space.owner = boardState[index].owner;
+                    space.houses = boardState[index].houses || 0;
+                    space.mortgaged = boardState[index].mortgaged || false;
+                }
+            });
+            
+            showScreen('gameScreen');
+            initBoard();
+            updateDisplay();
+            
+            showModal('Game Loaded', 'Your saved game has been loaded!', [
+                { text: 'OK', action: closeModal }
+            ]);
+        }
+        
+        // LEADERBOARD - Using JavaScript variable instead of localStorage
+        let leaderboardData = [];
+        
+        function saveToLeaderboard(winner) {
+            const entry = {
+                name: winner.name,
+                cash: winner.cash,
+                properties: winner.properties.length,
+                wealth: calculateWealth(winner),
+                date: new Date().toLocaleDateString()
+            };
+            
+            leaderboardData.push(entry);
+            leaderboardData.sort((a, b) => b.wealth - a.wealth);
+            leaderboardData = leaderboardData.slice(0, 10);
+        }
+        
+        function showLeaderboard() {
+            let body = '<h3 style="text-align: center; margin-bottom: 20px;">🏆 Top 10 Winners</h3>';
+            
+            if (leaderboardData.length === 0) {
+                body += '<p style="text-align: center; padding: 40px; color: var(--color-text-secondary);">No winners yet! Be the first to win!</p>';
+            } else {
+                body += '<div style="margin-top: 16px;">';
+                leaderboardData.forEach((entry, index) => {
+                    const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+                    const bgColor = index === 0 ? 'var(--color-bg-1)' : index === 1 ? 'var(--color-bg-2)' : index === 2 ? 'var(--color-bg-3)' : 'var(--color-background)';
+                    body += `
+                        <div style="padding: 16px; background: ${bgColor}; margin: 8px 0; border-radius: 12px; border: 2px solid var(--color-border);">
+                            <div style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">${medal} ${entry.name}</div>
+                            <div style="display: flex; justify-content: space-between; margin: 4px 0;">
+                                <span>💰 Cash:</span><strong>$${entry.cash.toLocaleString()}</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 4px 0;">
+                                <span>🏠 Properties:</span><strong>${entry.properties}</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 4px 0;">
+                                <span>💎 Total Wealth:</span><strong>$${entry.wealth.toLocaleString()}</strong>
+                            </div>
+                            <div style="text-align: right; margin-top: 8px; color: var(--color-text-secondary); font-size: 12px;">📅 ${entry.date}</div>
+                        </div>
+                    `;
+                });
+                body += '</div>';
+            }
+            
+            showModal('🏆 Leaderboard', body, [
+                { text: 'Close', action: closeModal }
+            ]);
+        }
+        
+        function showSettings() {
+            const body = `
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="settingSound" ${gameState.soundEnabled ? 'checked' : ''}>
+                        Sound Effects
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="settingVoice" ${gameState.voiceEnabled ? 'checked' : ''}>
+                        Voice Announcements
+                    </label>
+                </div>
+            `;
+            
+            showModal('Settings', body, [
+                { text: 'Save', action: () => {
+                    gameState.soundEnabled = document.getElementById('settingSound').checked;
+                    gameState.voiceEnabled = document.getElementById('settingVoice').checked;
+                    closeModal();
+                    document.getElementById('menu').classList.remove('active');
+                    document.getElementById('menuOverlay').classList.remove('active');
+                }},
+                { text: 'Cancel', action: () => {
+                    closeModal();
+                    document.getElementById('menu').classList.remove('active');
+                    document.getElementById('menuOverlay').classList.remove('active');
+                }}
+            ]);
+        }
+    </script>
+</body>
+</html>
