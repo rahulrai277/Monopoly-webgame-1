@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>🎮 Monopoly India States - Play Now!</title>
+    <style>
+        :root {
+            --color-primary: #1E3A8A;
+            --color-primary-dark: #1E40AF;
+            --color-accent: #FBBF24;
+            --color-bg: #EFF6FF;
+            --color-surface: #DBEAFE;
+            --color-text: #1F2937;
+            --color-text-secondary: #6B7280;
+        }
+        
+        [data-theme="royal"] {
+            --color-primary: #1E3A8A;
+            --color-primary-dark: #1E40AF;
+            --color-accent: #FBBF24;
+            --color-bg: #EFF6FF;
+            --color-surface: #DBEAFE;
+        }
+        
+        [data-theme="forest"] {
+            --color-primary: #065F46;
+            --color-primary-dark: #047857;
+            --color-accent: #7DD3FC;
+            --color-bg: #ECFDF5;
+            --color-surface: #D1FAE5;
+        }
+        
+        [data-theme="sunset"] {
+            --color-primary: #EA580C;
+            --color-primary-dark: #C2410C;
+            --color-accent: #1E40AF;
+            --color-bg: #FFF7ED;
+            --color-surface: #FFEDD5;
+        }
+        
+        [data-theme="midnight"] {
+            --color-primary: #6B21A8;
+            --color-primary-dark: #7C3AED;
+            --color-accent: #22D3EE;
+            --color-bg: #1F2937;
+            --color-surface: #374151;
+            --color-text: #F9FAFB;
+            --color-text-secondary: #D1D5DB;
+        }
+        
+        [data-theme="ocean"] {
+            --color-primary: #0891B2;
+            --color-primary-dark: #0E7490;
+            --color-accent: #FCD34D;
+            --color-bg: #ECFEFF;
+            --color-surface: #CFFAFE;
+        }
+        
+        [data-theme="sakura"] {
+            --color-primary: #EC4899;
+            --color-primary-dark: #DB2777;
+            --color-accent: #A855F7;
+            --color-bg: #FDF2F8;
+            --color-surface: #FCE7F3;
+        }
+        
+        [data-theme="cyber"] {
+            --color-primary: #10B981;
+            --color-primary-dark: #059669;
+            --color-accent: #06B6D4;
+            --color-bg: #111827;
+            --color-surface: #1F2937;
+            --color-text: #00FF88;
+            --color-text-secondary: #4ADE80;
+        }
+        
+        [data-theme="classic"] {
+            --color-primary: #DC2626;
+            --color-primary-dark: #B91C1C;
+            --color-accent: #059669;
+            --color-bg: #FEF2F2;
+            --color-surface: #FEE2E2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: var(--color-bg);
+            color: var(--color-text);
+            transition: background 0.5s, color 0.5s;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* SETUP PAGE */
+        #setupPage {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            animation: float 4s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        
+        .setup-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35), 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.6s ease-out;
+            color: #1F2937;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .setup-title {
+            text-align: center;
+            font-size: clamp(28px, 6vw, 42px);
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .setup-subtitle {
+            text-align: center;
+            color: #6B7280;
+            margin-bottom: 35px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+            background: #F9FAFB;
+            padding: 20px;
+            border-radius: 16px;
+            border: 2px solid #F3F4F6;
+            transition: all 0.3s;
+        }
+        
+        .form-group:hover {
+            border-color: #E5E7EB;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #1F2937;
+            font-size: 15px;
+            letter-spacing: 0.8px;
+        }
+        
+        .player-count-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .player-count-btn {
+            flex: 1;
+            padding: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            border: 3px solid #E5E7EB;
+            background: linear-gradient(135deg, white, #F9FAFB);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #6B7280;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            min-height: 60px;
+        }
+        
+        .player-count-btn:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .player-count-btn.selected {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .player-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .player-input-wrapper {
+            display: none;
+            position: relative;
+        }
+        
+        .player-input-wrapper.active {
+            display: block;
+        }
+        
+        .player-input-wrapper[data-player="1"] .player-input {
+            border-left: 4px solid #DC2626;
+        }
+        
+        .player-input-wrapper[data-player="2"] .player-input {
+            border-left: 4px solid #2563EB;
+        }
+        
+        .player-input-wrapper[data-player="3"] .player-input {
+            border-left: 4px solid #059669;
+        }
+        
+        .player-input-wrapper[data-player="4"] .player-input {
+            border-left: 4px solid #D97706;
+        }
+        
+        .player-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            transition: all 0.3s;
+            color: #1F2937;
+            background: white;
+            font-weight: 500;
+        }
+        
+        .player-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .theme-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .theme-btn {
+            padding: 16px;
+            border: 3px solid #E5E7EB;
+            background: linear-gradient(135deg, white, #F9FAFB);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 700;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .theme-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            border-color: var(--color-primary);
+        }
+        
+        .theme-btn.selected {
+            border-color: var(--color-primary);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.25);
+        }
+        
+        .sound-settings {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #F3F4F6;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-group:hover {
+            border-color: #E5E7EB;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+        
+        .checkbox-group label {
+            font-size: 16px;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #F3F4F6;
+        }
+        
+        .volume-slider {
+            flex: 1;
+            height: 10px;
+            border-radius: 10px;
+            background: #E5E7EB;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .volume-value {
+            min-width: 50px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .start-game-btn {
+            width: 100%;
+            padding: 22px;
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #10B981, #059669, #047857);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .start-game-btn:hover:not(:disabled) {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(16, 185, 129, 0.5);
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+        
+        .start-game-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px solid #E5E7EB;
+            color: #9CA3AF;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .copyright a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        /* GAME PAGE */
+        #gamePage {
+            display: none;
+            min-height: 100vh;
+            background: var(--color-bg);
+        }
+        
+        #gameHeader {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .game-title {
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: bold;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .game-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .control-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .control-btn.active {
+            background: rgba(255,255,255,0.4);
+        }
+        
+        #themeSelect {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        #gameContent {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            grid-template-rows: auto auto auto;
+            min-height: calc(100vh - 80px);
+        }
+        
+        #boardSection {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        #board {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            gap: 2px;
+            max-width: 800px;
+            width: 100%;
+            aspect-ratio: 1;
+            background: #333;
+            border: 4px solid #333;
+            border-radius: 10px;
+        }
+        
+        .space {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(7px, 1vw, 11px);
+            padding: 3px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .space:hover {
+            z-index: 10;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .space-name {
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.1;
+            color: #1F2937;
+        }
+        
+        .space-price {
+            font-size: 0.8em;
+            color: #6B7280;
+            margin-top: 2px;
+        }
+        
+        .color-bar {
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .tokens {
+            position: absolute;
+            bottom: 3px;
+            left: 3px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+        
+        .token {
+            width: clamp(16px, 2.5vw, 26px);
+            height: clamp(16px, 2.5vw, 26px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(10px, 1.5vw, 18px);
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .token.active {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); box-shadow: 0 4px 16px rgba(255,215,0,0.6); }
+        }
+        
+        .board-center {
+            grid-column: 2 / 11;
+            grid-row: 2 / 11;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            border-radius: 8px;
+            color: white;
+            padding: 15px;
+        }
+        
+        .dice-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .dice {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .dice.rolling {
+            animation: diceRoll 0.5s ease-in-out;
+        }
+        
+        @keyframes diceRoll {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg); }
+            75% { transform: rotate(270deg) scale(1.1); }
+        }
+        
+        .board-title {
+            font-size: clamp(16px, 3vw, 24px);
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .board-subtitle {
+            font-size: clamp(12px, 2vw, 16px);
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        /* CENTER DICE SECTION */
+        #centerDiceSection {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            padding: 20px;
+            background: var(--color-surface);
+            border-top: 3px solid var(--color-primary);
+            border-bottom: 3px solid var(--color-primary);
+        }
+        
+        .center-dice-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border: 3px solid var(--color-primary);
+        }
+        
+        .current-player-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--color-border);
+        }
+        
+        .player-icon {
+            font-size: 48px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        
+        #centerPlayerName {
+            font-size: clamp(22px, 4vw, 28px);
+            font-weight: bold;
+            color: var(--color-primary);
+            margin: 0;
+        }
+        
+        .dice-display {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .dice-item {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 4px solid var(--color-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--color-primary);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+        
+        .dice-item.rolling {
+            animation: diceRoll 0.5s ease-in-out;
+        }
+        
+        .player-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 12px;
+            background: var(--color-bg);
+            border-radius: 12px;
+            border: 2px solid var(--color-border);
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        
+        .roll-dice-main {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .roll-dice-main:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.5);
+        }
+        
+        .roll-dice-main:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .roll-icon {
+            font-size: 32px;
+        }
+        
+        .status-message {
+            text-align: center;
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            padding: 12px;
+            background: var(--color-bg);
+            border-radius: 10px;
+        }
+        
+        /* BUY/SELL SECTION */
+        #buySellSection {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            padding: 20px;
+            background: var(--color-bg);
+        }
+        
+        .buy-sell-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        
+        .current-space-card {
+            background: var(--color-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid var(--color-border);
+        }
+        
+        .info-text {
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        .space-detail-inline {
+            text-align: center;
+        }
+        
+        .space-name-big {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+        
+        .space-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+        
+        .buy-options {
+            margin: 20px 0;
+        }
+        
+        .buy-question {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-text);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .buy-details {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--color-bg);
+            border-radius: 10px;
+        }
+        
+        .buy-detail-item {
+            text-align: center;
+        }
+        
+        .buy-detail-label {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .buy-detail-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        
+        .buy-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .buy-btn {
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .buy-btn.yes {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+        
+        .buy-btn.no {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+            color: white;
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .divider-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+            margin: 25px 0;
+        }
+        
+        .trade-section {
+            text-align: center;
+        }
+        
+        .subsection-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-text);
+            margin: 0 0 15px 0;
+        }
+        
+        .trade-main-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .trade-main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* RIGHT PANEL */
+        #rightPanel {
+            grid-column: 2 / 3;
+            grid-row: 1 / 4;
+            width: 400px;
+            background: var(--color-surface);
+            border-left: 3px solid var(--color-primary);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+        
+        .panel-tabs {
+            display: flex;
+            background: var(--color-primary);
+            border-bottom: 3px solid var(--color-primary-dark);
+        }
+        
+        .panel-tab {
+            flex: 1;
+            padding: 15px 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .panel-tab:last-child {
+            border-right: none;
+        }
+        
+        .panel-tab:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .panel-tab.active {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+        
+        .panel-content {
+            display: none;
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .panel-content.active {
+            display: block;
+        }
+        
+        .panel-content h2 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .player-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: white;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .player-card.active {
+            border-width: 4px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            animation: playerGlow 2s infinite;
+        }
+        
+        @keyframes playerGlow {
+            0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+            50% { box-shadow: 0 12px 36px rgba(255,215,0,0.4); }
+        }
+        
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .player-token-display {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: rgba(255,255,255,0.2);
+            border: 3px solid white;
+        }
+        
+        .player-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .player-cash {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .property-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .property-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            border-left: 4px solid white;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card-number {
+            width: 32px;
+            height: 32px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .card-content h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: var(--color-text);
+        }
+        
+        .card-content p {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+        
+        /* BOTTOM SECTION */
+        #bottomSection {
+            grid-column: 1 / 3;
+            grid-row: 4 / 5;
+            background: var(--color-surface);
+            border-top: 3px solid var(--color-primary);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .bottom-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        .bottom-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        #currentTurnInfo {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        #rollDiceBtn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        #rollDiceBtn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        #rollDiceBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .action-btn {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .action-btn.buy {
+            background: #10B981;
+            color: white;
+        }
+        
+        .action-btn.skip {
+            background: #EF4444;
+            color: white;
+        }
+        
+        .action-btn.build {
+            background: #F59E0B;
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        #stateInfoBox {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .state-detail {
+            padding: 12px;
+            background: var(--color-bg);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .state-detail h4 {
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 14px;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        #gameLogBox {
+            height: 250px;
+            overflow-y: auto;
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            padding: 15px;
+            background: var(--color-bg);
+        }
+        
+        .log-entry {
+            padding: 8px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid var(--color-primary);
+            font-size: 13px;
+            animation: logSlide 0.3s;
+        }
+        
+        @keyframes logSlide {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 1024px) {
+            #gameContent {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+            }
+            
+            #boardSection {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+            
+            #centerDiceSection {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+            
+            #buySellSection {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+            
+            #rightPanel {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+                width: 100%;
+                border-left: none;
+                border-top: 3px solid var(--color-primary);
+                max-height: none;
+            }
+            
+            #bottomSection {
+                grid-column: 1 / 2;
+                grid-row: 5 / 6;
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .bottom-box {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .center-dice-container {
+                padding: 20px;
+            }
+            
+            .player-stats {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .dice-item {
+                width: 60px;
+                height: 60px;
+                font-size: 36px;
+            }
+            
+            .roll-dice-main {
+                font-size: 20px;
+                padding: 16px;
+            }
+            
+            .buy-sell-container {
+                padding: 18px;
+            }
+            
+            .setup-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            .theme-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            #gameHeader {
+                padding: 15px;
+            }
+            
+            .game-title {
+                font-size: 18px;
+            }
+            
+            #boardSection {
+                padding: 10px;
+            }
+            
+            .dice {
+                width: 45px;
+                height: 45px;
+                font-size: 26px;
+            }
+            
+            .panel-tab {
+                font-size: 12px;
+                padding: 14px 10px;
+            }
+            
+            .bottom-box {
+                padding: 15px;
+            }
+            
+            .bottom-box h3 {
+                font-size: 16px;
+            }
+            
+            #rollDiceBtn {
+                padding: 14px;
+                font-size: 18px;
+                min-height: 56px;
+            }
+            
+            #tradeBtn {
+                min-height: 52px;
+                font-size: 16px;
+            }
+            
+            .action-btn {
+                min-height: 48px;
+                font-size: 15px;
+            }
+        }
+        
+        /* TRADING MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlide 0.3s ease-out;
+            color: #1F2937;
+        }
+        
+        @keyframes modalSlide {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #6B7280;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .close-modal:hover {
+            background: #F3F4F6;
+            color: #1F2937;
+        }
+        
+        .property-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .property-trade-item {
+            background: #F9FAFB;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #E5E7EB;
+            transition: all 0.3s;
+        }
+        
+        .property-trade-item:hover {
+            border-color: var(--color-primary);
+            transform: translateX(5px);
+        }
+        
+        .property-trade-info {
+            flex: 1;
+        }
+        
+        .property-trade-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1F2937;
+        }
+        
+        .property-trade-price {
+            color: #6B7280;
+            font-size: 14px;
+        }
+        
+        .trade-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .trade-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .trade-btn.sell {
+            background: #F59E0B;
+            color: white;
+        }
+        
+        .trade-btn.buy {
+            background: #10B981;
+            color: white;
+        }
+        
+        .trade-btn.offer {
+            background: #3B82F6;
+            color: white;
+        }
+        
+        .trade-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #E5E7EB, transparent);
+            margin: 25px 0;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .player-properties-section {
+            margin-bottom: 20px;
+        }
+        
+        .player-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .price-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .price-input-group label {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .price-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .price-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+        
+        .price-suggestion {
+            font-size: 13px;
+            color: #6B7280;
+            font-style: italic;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn.primary {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+        
+        .modal-btn.secondary {
+            background: #E5E7EB;
+            color: #374151;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #6B7280;
+        }
+        
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .setup-container {
+                padding: 20px;
+                margin: 5px;
+            }
+            
+            .form-group {
+                padding: 15px;
+            }
+            
+            .player-count-buttons {
+                gap: 8px;
+            }
+            
+            .player-count-btn {
+                padding: 14px;
+                font-size: 20px;
+                min-height: 54px;
+            }
+            
+            .theme-buttons {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .current-player-header {
+                flex-direction: column;
+            }
+            
+            .player-icon {
+                font-size: 36px;
+                width: 60px;
+                height: 60px;
+            }
+            
+            #centerPlayerName {
+                font-size: 20px;
+            }
+            
+            .dice-item {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+            
+            .roll-dice-main {
+                font-size: 18px;
+                padding: 14px;
+            }
+            
+            .buy-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .space-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .setup-container {
+                padding: 18px;
+            }
+            
+            .setup-title {
+                font-size: 24px;
+            }
+            
+            .setup-subtitle {
+                font-size: 14px;
+            }
+            
+            .modal-content {
+                padding: 18px;
+            }
+            
+            .trade-buttons {
+                flex-direction: column;
+            }
+            
+            .trade-btn {
+                width: 100%;
+                padding: 12px;
+                min-height: 48px;
+            }
+            
+            .player-count-buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .space {
+                font-size: 7px;
+                padding: 2px;
+            }
+            
+            .token {
+                width: 16px;
+                height: 16px;
+                font-size: 11px;
+            }
+            
+            .dice {
+                width: 38px;
+                height: 38px;
+                font-size: 22px;
+            }
+            
+            #boardSection {
+                padding: 8px;
+            }
+            
+            .panel-tab {
+                font-size: 10px;
+                padding: 12px 6px;
+            }
+            
+            #gameHeader {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .game-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            #rollDiceBtn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .center-dice-container {
+                padding: 15px;
+            }
+            
+            .dice-display {
+                gap: 12px;
+            }
+            
+            .roll-icon {
+                font-size: 24px;
+            }
+            
+            .setup-container {
+                padding: 15px;
+            }
+            
+            .setup-title {
+                font-size: 22px;
+            }
+            
+            .player-count-btn {
+                font-size: 18px;
+                padding: 12px;
+                min-height: 50px;
+            }
+            
+            .space {
+                font-size: 6px;
+                padding: 1px;
+            }
+            
+            .space-name {
+                font-size: 0.9em;
+            }
+            
+            .token {
+                width: 14px;
+                height: 14px;
+                font-size: 9px;
+                border-width: 1px;
+            }
+            
+            .dice {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .setup-container {
+                padding: 12px;
+            }
+            
+            .setup-title {
+                font-size: 20px;
+            }
+            
+            .player-count-btn {
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            .theme-btn {
+                font-size: 12px;
+                padding: 12px;
+            }
+            
+            .start-game-btn {
+                font-size: 18px;
+                padding: 16px;
+            }
+            
+            .form-label {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body data-theme="royal">
+    <!-- SETUP PAGE -->
+    <div id="setupPage">
+        <div class="particles" id="particles"></div>
+        <div class="setup-container">
+            <div class="setup-title">🇮🇳 MONOPOLY INDIA STATES</div>
+            <div class="setup-subtitle">Build Your Empire Across India</div>
+            
+            <div class="form-group">
+                <label class="form-label" style="justify-content: center;">🎮 How Many Players?</label>
+                <div class="player-count-buttons">
+                    <button class="player-count-btn" data-players="2">2</button>
+                    <button class="player-count-btn" data-players="3">3</button>
+                    <button class="player-count-btn" data-players="4">4</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" style="justify-content: center;">👥 Player Information</label>
+                <div class="player-inputs" id="playerInputs">
+                    <div class="player-input-wrapper" data-player="1">
+                        <input type="text" class="player-input" placeholder="🏛️ Player 1 Name (Red)" maxlength="20">
+                    </div>
+                    <div class="player-input-wrapper" data-player="2">
+                        <input type="text" class="player-input" placeholder="🏘️ Player 2 Name (Blue)" maxlength="20">
+                    </div>
+                    <div class="player-input-wrapper" data-player="3">
+                        <input type="text" class="player-input" placeholder="🕌 Player 3 Name (Green)" maxlength="20">
+                    </div>
+                    <div class="player-input-wrapper" data-player="4">
+                        <input type="text" class="player-input" placeholder="⛩️ Player 4 Name (Orange)" maxlength="20">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" style="justify-content: center;">🎨 Appearance Settings</label>
+                <div class="theme-buttons" id="themeButtons">
+                    <button class="theme-btn" data-theme="royal">👑 Royal Blue</button>
+                    <button class="theme-btn" data-theme="forest">🌲 Forest Green</button>
+                    <button class="theme-btn" data-theme="sunset">🌅 Sunset Orange</button>
+                    <button class="theme-btn" data-theme="midnight">🌙 Midnight Purple</button>
+                    <button class="theme-btn" data-theme="ocean">🌊 Ocean Teal</button>
+                    <button class="theme-btn" data-theme="sakura">🌸 Sakura Pink</button>
+                    <button class="theme-btn" data-theme="cyber">🔮 Cyber Neon</button>
+                    <button class="theme-btn" data-theme="classic">🎲 Classic</button>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 30px;">
+                <label class="form-label" style="justify-content: center;">🔊 Sound Settings</label>
+                <div class="sound-settings">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="bgMusicToggle" checked>
+                        <label for="bgMusicToggle">🎵 Background Music</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="soundEffectsToggle" checked>
+                        <label for="soundEffectsToggle">🔊 Sound Effects</label>
+                    </div>
+                    <div class="volume-control">
+                        <label>🔊 Volume:</label>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+                        <span class="volume-value" id="volumeValue">50%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="start-game-btn" id="startGameBtn" disabled>🎮 START GAME</button>
+            
+            <div class="copyright">
+                © 2025 <strong>Rahul Rai</strong><br>
+                <a href="https://portfolio.rahulrai.com" target="_blank">View Portfolio</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GAME PAGE -->
+    <div id="gamePage">
+        <!-- HEADER -->
+        <div id="gameHeader">
+            <div class="game-title">🇮🇳 MONOPOLY INDIA STATES</div>
+            <div class="game-controls">
+                <button class="control-btn active" id="soundBtn">🔊 Sound</button>
+                <button class="control-btn active" id="musicBtn">🎵 Music</button>
+                <select id="themeSelect">
+                    <option value="royal">👑 Royal Blue</option>
+                    <option value="forest">🌲 Forest Green</option>
+                    <option value="sunset">🌅 Sunset Orange</option>
+                    <option value="midnight">🌙 Midnight Purple</option>
+                    <option value="ocean">🌊 Ocean Teal</option>
+                    <option value="sakura">🌸 Sakura Pink</option>
+                    <option value="cyber">🔮 Cyber Neon</option>
+                    <option value="classic">🎲 Classic</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="gameContent">
+            <!-- BOARD SECTION -->
+            <div id="boardSection">
+                <div id="board">
+                    <!-- Board spaces will be generated by JS -->
+                </div>
+            </div>
+            
+            <!-- CENTER DICE SECTION -->
+            <div id="centerDiceSection">
+                <div class="center-dice-container">
+                    <div class="current-player-header">
+                        <div class="player-icon" id="centerPlayerIcon">🏛️</div>
+                        <h2 id="centerPlayerName">Player 1's Turn</h2>
+                    </div>
+                    
+                    <div class="dice-display">
+                        <div class="dice-item" id="centerDice1">1</div>
+                        <div class="dice-item" id="centerDice2">1</div>
+                    </div>
+                    
+                    <div class="player-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Last Roll:</span>
+                            <span class="stat-value" id="centerLastRoll">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Cash:</span>
+                            <span class="stat-value" id="centerCash">$1,500</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Position:</span>
+                            <span class="stat-value" id="centerPosition">GO</span>
+                        </div>
+                    </div>
+                    
+                    <button class="roll-dice-main" id="rollDiceMainBtn">
+                        <span class="roll-icon">🎲</span>
+                        <span class="roll-text">ROLL DICE</span>
+                    </button>
+                    
+                    <div class="status-message" id="statusMessage">Click to roll the dice!</div>
+                </div>
+            </div>
+            
+            <!-- BUY/SELL SECTION -->
+            <div id="buySellSection">
+                <div class="buy-sell-container">
+                    <h3 class="section-header">Decision Panel</h3>
+                    
+                    <div id="currentSpaceInfo" class="current-space-card">
+                        <p class="info-text">Roll the dice to begin!</p>
+                    </div>
+                    
+                    <div id="buyOptions" class="buy-options" style="display: none;">
+                        <!-- Buy options will be inserted here -->
+                    </div>
+                    
+                    <div class="divider-line"></div>
+                    
+                    <div class="trade-section">
+                        <h4 class="subsection-title">🤝 Trade &amp; Sell</h4>
+                        <button class="trade-main-btn" onclick="openTradeModal()">
+                            <span>💼</span> Open Trading Center
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RIGHT PANEL -->
+            <div id="rightPanel">
+                <div class="panel-tabs">
+                    <button class="panel-tab active" data-panel="players">👥 Players</button>
+                    <button class="panel-tab" data-panel="community">📋 Community</button>
+                    <button class="panel-tab" data-panel="chance">🎲 Chance</button>
+                </div>
+                
+                <div class="panel-content active" id="playersPanel">
+                    <h2>👥 Player Purchases</h2>
+                    <div id="playerCards"></div>
+                </div>
+                
+                <div class="panel-content" id="communityPanel">
+                    <h2>📋 Community Chest Cards (16)</h2>
+                    <div id="communityCards"></div>
+                </div>
+                
+                <div class="panel-content" id="chancePanel">
+                    <h2>🎲 Chance Cards (16)</h2>
+                    <div id="chanceCards"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOTTOM SECTION -->
+        <div id="bottomSection">
+            <div class="bottom-box">
+                <h3>📍 State Information</h3>
+                <div id="stateInfoBox">
+                    <p style="color: #6B7280; text-align: center; padding: 20px;">Roll the dice to begin your journey!</p>
+                </div>
+            </div>
+            
+            <div class="bottom-box">
+                <h3>📜 Game Log</h3>
+                <div id="gameLogBox"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TRADING MODAL -->
+    <div class="modal-overlay" id="tradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🤝 Trading Center</div>
+                <button class="close-modal" onclick="closeTradeModal()">×</button>
+            </div>
+            
+            <div id="tradeContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- SELL PROPERTY MODAL -->
+    <div class="modal-overlay" id="sellModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">💰 Sell Property</div>
+                <button class="close-modal" onclick="closeSellModal()">×</button>
+            </div>
+            
+            <div id="sellContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- OFFER MODAL -->
+    <div class="modal-overlay" id="offerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📝 Make Offer</div>
+                <button class="close-modal" onclick="closeOfferModal()">×</button>
+            </div>
+            
+            <div id="offerContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>lass="panel-content" id="chancePanel">
+                    <h2>🎲 Chance Cards (16)</h2>
+                    <div id="chanceCards"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOTTOM SECTION -->
+        <div id="bottomSection">
+            <div class="bottom-box">
+                <h3>📍 State Information</h3>
+                <div id="stateInfoBox">
+                    <p style="color: #6B7280; text-align: center; padding: 20px;">Roll the dice to begin your journey!</p>
+                </div>
+            </div>
+            
+            <div class="bottom-box">
+                <h3>📜 Game Log</h3>
+                <div id="gameLogBox"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TRADING MODAL -->
+    <div class="modal-overlay" id="tradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🤝 Trading Center</div>
+                <button class="close-modal" onclick="closeTradeModal()">×</button>
+            </div>
+            
+            <div id="tradeContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- SELL PROPERTY MODAL -->
+    <div class="modal-overlay" id="sellModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">💰 Sell Property</div>
+                <button class="close-modal" onclick="closeSellModal()">×</button>
+            </div>
+            
+            <div id="sellContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- OFFER MODAL -->
+    <div class="modal-overlay" id="offerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📝 Make Offer</div>
+                <button class="close-modal" onclick="closeOfferModal()">×</button>
+            </div>
+            
+            <div id="offerContent">
+                <!-- Content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- SETTINGS MODAL -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">⚙️ Settings</div>
+                <button class="close-modal" onclick="closeSettingsModal()">×</button>
+            </div>
+            <div id="settingsContent">
+                <!-- Settings content will be here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- SAVE GAME MODAL -->
+    <div class="modal-overlay" id="saveModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">💾 Save Game</div>
+                <button class="close-modal" onclick="closeSaveModal()">×</button>
+            </div>
+            <div id="saveContent">
+                <!-- Save content will be here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- LOAD GAME MODAL -->
+    <div class="modal-overlay" id="loadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📂 Load Game</div>
+                <button class="close-modal" onclick="closeLoadModal()">×</button>
+            </div>
+            <div id="loadContent">
+                <!-- Load content will be here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- STATE INFO MODAL -->
+    <div class="modal-overlay" id="stateInfoModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <div class="modal-title" id="stateInfoTitle">State Details</div>
+                <button class="close-modal" onclick="closeStateInfoModal()">×</button>
+            </div>
+            <div id="stateInfoContent">
+                <!-- State info content will be here -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
